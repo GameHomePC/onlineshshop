@@ -1,0 +1,17 @@
+
+#Options -ExecCGI -FollowSymLinks -Includes -Indexes -MultiViews
+
+RemoveType .phtml .php .php3 .pl .perl .cgi .sh .shtml .shtm .stml .stm
+RemoveHandler .phtml .php .php3 .pl .perl .cgi .sh .shtml .shtm .stml .stm
+#AddType text/plain .phtml .php .php3 .pl .perl .cgi .sh .shtml .shtm .stml .stm
+
+<FilesMatch "\.(ph.*|pl|perl|cgi|sh.*|stm.*)$">
+	Order Allow,Deny
+	Deny from All
+	Satisfy All
+</FilesMatch>
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine Off
+</IfModule>

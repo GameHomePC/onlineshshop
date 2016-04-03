@@ -1,0 +1,6 @@
+Order Allow,Deny
+Deny from All
+
+<FilesMatch "^(forum|error)">
+	Allow from All
+</FilesMatch>

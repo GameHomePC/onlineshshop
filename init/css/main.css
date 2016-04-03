@@ -1,0 +1,59 @@
+
+
+IMG {
+	border: 0;
+	}
+
+P {
+	text-align: justify;
+	}
+
+FORM.nomargin {
+	margin: 0;
+	margin-top: -15;
+	padding: 0;
+	border: 0;
+	}
+
+
+.f1, .f1 TD {
+	font-size: xx-small;
+	}
+.f2, .f2 TD {
+	font-size: x-small;
+	}
+.f3, .f3 TD {
+	font-size: small;
+	}
+
+.fix1, .fix1 TD {
+	font-size: 10.8px;
+	}
+.fix15, .fix15 TD {
+	font-size: 12px;
+	}
+.fix2, .fix2 TD {
+	font-size: 13.5px;
+	}
+.fix25, .fix25 TD {
+	font-size: 14.8px;
+	}
+.fix3, .fix3 TD {
+	font-size: 16px;
+	}
+
+.flt1, .flt1 TD {
+	font-size: 1.3ex;
+	}
+.flt15, .flt15 TD {
+	font-size: 1.45ex;
+	}
+.flt2, .flt2 TD {
+	font-size: 1.6ex;
+	}
+.flt25, .flt25 TD {
+	font-size: 1.75ex;
+	}
+.flt3, .flt3 TD {
+	}
+

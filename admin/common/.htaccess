@@ -1,0 +1,6 @@
+Order Allow,Deny
+Deny from All
+
+<FilesMatch "^set_user_online">
+	Allow from All
+</FilesMatch>

@@ -1,0 +1,4 @@
+<FilesMatch "^tree">
+	Order Allow,Deny
+	Deny from All
+</FilesMatch>

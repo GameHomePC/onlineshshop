@@ -1,0 +1,1 @@
+0 	6 	* 	* 	* 	/path/ROBOT/script.php > /path/CACHE/robot_script.log 2>&1

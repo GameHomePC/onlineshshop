@@ -1,0 +1,18 @@
+<table border=0 width=100% cellspacing=0 cellpadding=0 background="<?= $SITE_ROOT ?>/img/left_vmenu.gif" class='infoBoxHead'>
+<tr>
+  <td width=18><img src="<?= $SITE_ROOT ?>/img/left_vmenu1.gif" alt="" width=18 height=22></td>
+  <td width=100% nowrap class=infoBoxHead>Categories</td>
+</tr>
+</table>
+<table border=0 width=100% cellspacing=0 cellpadding=1 class=border>
+<tr><td>
+<table border=0 width=100% cellspacing=0 cellpadding=3 class=bg>
+<tr>
+  <td align=left style='padding-top:10;padding-bottom:10;'>
+
+
+  </td>
+</tr>
+</table>
+</td></tr>
+</table>

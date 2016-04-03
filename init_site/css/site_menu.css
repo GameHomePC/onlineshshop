@@ -1,0 +1,43 @@
+
+.siteMenuBorder {
+	background-color: #000044;
+	}
+.siteSubMenuBorder {
+	background-color: #000044;
+	}
+.siteMenuBg,
+.siteSubMenuBg {
+	background-color: #5475C8;
+	}
+
+.siteMenuText,
+A.siteMenuHItem,
+A.siteMenuHItem:visited {
+	color: #EEEEEE;
+	text-decoration: none;
+	font-size: 13.5px;
+	font-weight: bold;
+	}
+A.siteMenuItem,
+A.siteMenuItem:visited,
+A.siteMenuItemAdd,
+A.siteMenuItemDel {
+	color: #EEEEEE;
+	text-decoration: none;
+	font-size: 12px;
+	}
+A.siteMenuItemAdd {
+	color: #334499;
+	/*color: #008800;*/
+	}
+A.siteMenuItemDel {
+	color: #CC3333;
+	/*color: #DD0000;*/
+	}
+A.siteMenuHItem:hover,
+A.siteMenuItem:hover,
+A.siteMenuItemAdd:hover,
+A.siteMenuItemDel:hover {
+	color: #002288;
+	text-decoration: none;
+	}

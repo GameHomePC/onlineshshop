@@ -1,0 +1,39 @@
+
+BODY,
+TD {
+	font-size: small;
+	}
+
+
+INPUT,
+TEXTAREA,
+SELECT,
+OPTION {
+/*	border-width: 0px;*/
+	}
+
+INPUT,
+.textarea {			/* use: <span class=textarea><textarea ....></span> */
+	font-family: Courier;
+	font-size: 13.5px;
+	}
+.select {			/* use: <span class=select><select ....></span> */
+	font-family: Arial;
+	font-size: 13.5px;
+	}
+
+
+.head, .header,
+.txt, .txt TD,
+.txtB, .txtB TD,
+.note, .note1, .note2,
+.hl, .ok, .warn {
+	font-size: small;
+	}
+
+.headH, .headerH,
+.txtH, .txtH TD,
+.noteH, .noteH1, .noteH2,
+.hlH, .okH, .warnH {
+	font-size: medium;
+	}
