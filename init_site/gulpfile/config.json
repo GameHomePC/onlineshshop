@@ -1,0 +1,49 @@
+{
+  "tasks": {
+    "browserSync": {
+      "logPrefix": "Frontend_Dev",
+      "proxy": {
+        "target": "onlineshshop.loc"
+      },
+      "open": false,
+      "ghostMode": {
+        "scroll": false,
+        "click": false
+      }
+    },
+    "js": {
+      "src": [
+        "./js/main.js",
+        "./js/app.js"
+      ],
+      "dest": "./js/build/",
+      "watch": "./js/**/*.js"
+    },
+    "css": {
+      "src": "./stylus/*.styl",
+      "dest": "./css/",
+      "watch": "./stylus/**/*.styl",
+      "autoprefixer": {
+        "browsers": [
+          "last 100 version"
+        ]
+      }
+    },
+    "html": {
+      "src": "./src/*.html",
+      "dest": "./build/",
+      "watch": "./src/**/*.html"
+    },
+    "images": {
+      "src": "./images/**/*.*",
+      "dest": "./images/",
+      "watch": "./images/**/*.*"
+    },
+    "fonts": {
+      "src": "./src/fonts/**/*.*",
+      "dest": "./build/fonts/",
+      "watch": "./src/fonts/**/*.*"
+    },
+    "clean": "./build"
+  }
+}

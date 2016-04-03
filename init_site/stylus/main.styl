@@ -1,0 +1,433 @@
+@import "config/framework.styl";
+@import "config/core.styl";
+
+
+BODY {
+  margin: 0;
+  background-color: #FFFFFF;
+  scrollbar-arrow-color: #000099;
+  scrollbar-base-color: #7484D3;
+}
+BODY,
+TD {
+  color: #000000;
+  font-family: Verdana,Arial,Helvetica,Tahoma,sans-serif;
+  font-size: 12px;
+}
+
+H1 {
+  text-align: center;
+  color: #00366B;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 2;
+}
+
+
+TEXTAREA {
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+INPUT,
+TEXTAREA,
+SELECT,
+OPTION {
+  border: 1px #8E9AD6 solid;
+  background-color:#EFF3FF;
+}
+
+DIV,TEXTAREA {
+  scrollbar-arrow-color: #000099;
+  scrollbar-base-color: #BFC3DF;
+}
+
+
+A,
+A:visited {
+  color: #00266B;
+  text-decoration: none;
+}
+A:hover {
+  color: #0000FF;
+  text-decoration: underline;
+}
+
+A.menu,
+A.menu:visited {
+  font-family: Tahoma,Verdana,Arial;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 7 1 7;
+}
+A.menu:hover {
+  color: #002288;
+  background-color: #7495E8;
+  text-decoration: none;
+}
+
+
+/* TABLE */
+.border {
+  background-color: #8E9AD6;
+}
+.bg, .bgi, .bgi input {
+  background-color: #EFF3FF;
+}
+.bgH {
+  background-color: #CFD9EF;
+}
+.bgHl {
+  background-color: #BCC8E2;
+}
+
+
+.button {
+  background-color: #DBE2E9;
+}
+.buttonH {
+  color: #DBE2E9;
+  font-weight: bold;
+  background-color: #116699;
+}
+
+.pageHeader {
+  background-color: #7484D3;
+}
+.menuLine {
+  background-color: #5475C8;
+}
+
+div.navline {
+  padding:3;
+  font-weight:bold;
+  border: 1 solid #333333;
+  background-color: #7495E8;
+}
+div.navline a {
+  font-weight:bold;
+}
+
+
+.infoBoxHead {
+  color: #00366B;
+  font-weight: bold;
+  font-family: Tahoma,Verdana,Arial;
+}
+table.infoBoxHead {
+  background-color: #7484D3;
+}
+
+.boxProduct {
+  padding-bottom:5px
+}
+
+.pagebar {
+  color: #003050;
+  font-weight: bold;
+  font-family: Tahoma,Verdana,Arial;
+}
+table.pagebar {
+  background-color: #7484D3;
+}
+a.pagebar,
+a.pagebar:visited {
+  color: #DDEEFF;
+}
+a.pagebar:hover {
+  color: #0000FF;
+}
+.pagebar select {
+  font-weight: bold;
+  font-size: 10px;
+}
+.pagebar option {
+  background-color: #CFD9EF;
+}
+
+
+.desc_preview {
+  font-size:9;
+  text-align:justify;
+  color: #111122;
+}
+
+
+.toplogin {
+  color: #DDDDDD;
+  font-size: 11;
+  font-weight: bold;
+}
+a.toplogin,
+a.toplogin:visited {
+  color: #EEEEEE;
+  font-size: 10;
+  font-weight: normal;
+}
+a.toplogin:hover {
+  color: #0000FF;
+}
+input.toplogin {
+  color: #444444;
+  background-color: #CFD9EF;
+  border:1 #507080 solid;
+  height: 18;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+
+.button1, .button2, .button3 {
+  border:1px #668899 solid;
+  font-size:14;
+  font-weight:bold;
+  padding:2;
+}
+.button1, .button3 {
+  background-color: #EFF3FF;
+}
+.button2 {
+  background-color: #CFD9EF;
+}
+.button3 {
+  font-size:12;
+}
+.button1 a, .button2 a, .button3 a {
+  text-decoration: none;
+}
+.button1 a:hover, .button2 a:hover {
+  text-decoration: none;
+}
+.button1 a:hover, .button2 a:hover {
+  border:1 #0000AA dotted;
+}
+td.button1, td.button2, td.button3 {
+  width: 100; /* for no bag */
+}
+
+
+
+/* necessary to fill field */
+.star {
+  color: #CC3333;/*#FF0000*/
+}
+
+
+.newsText,
+.newsText A,
+.newsHead {
+  color: #386080;
+  font-family: Tahoma,Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+}
+.newsHead {
+  color: #616180;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+.bigCat,
+.bigCatB,
+.smallCat {
+  color: #224466;
+}
+.bigCatB {
+  font-weight: bold;
+}
+.smallCat {
+  font-size: 10px;
+}
+
+/* ************************************************************************** */
+.head, .headH, .header, .headerH {
+  color: #116699;
+  font-weight: bold;
+  font-size: x-small;
+}
+.headH, .headerH {
+  font-size: small;
+}
+.header, .headerH {
+  text-decoration: underline;
+}
+
+
+.txt, .txt TD {
+  font-size: x-small;
+}
+.txtB, .txtB TD {
+  font-size: x-small;
+  font-weight: bold;
+}
+.txtH, .txtH TD {
+  font-size: small;
+  font-weight: bold;
+}
+
+
+.note, .note1, .note2 {
+  color: #116699;
+  font-weight: normal;
+}
+.noteH, .noteH1, .noteH2 {
+  font-weight: normal;
+}
+.note1, .noteH1 {
+  color: #556699;
+}
+.note2, .noteH2 {
+  color: #CC3333;
+}
+
+
+.hl, .hlH, .ok, .okH, .warn, .warnH {
+  color: #116699;
+  font-weight: bold;
+  font-size: x-small;
+}
+.ok, .okH {
+  color: #339966;
+}
+.warn, .warnH {
+  color: #CC3333;
+}
+.hlH, .okH, .warnH {
+  font-size: small;
+}
+
+.inactive {
+  color: #888888;
+}
+
+
+
+/* ******************************************************************** */
+
+
+
+.popup_head {
+  color: #993300;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.small {
+  color: #003366;
+  font-size: 9px;
+}
+
+
+/*---------------- Shopping Cart ---------------*/
+
+.sc_message {
+  color: red;
+  font-size: xx-small;
+}
+
+.sc_warn {
+  color: #AA0000;
+}
+
+.sc_text {
+  font-size: xx-small;
+}
+
+
+
+/*------------------ Categories -------------------*/
+
+/* --- if DHTML --- */
+.tree {
+  font-size: 12px;
+  padding: 3;
+  padding-bottom: 8;
+  text-indent: -16;
+}
+.tree A,
+.tree A:visited {
+  /*	color: #000000; */
+  text-decoration: none;
+}
+.tree A:hover {
+  /*	color: #2266CC; */
+  padding:0 2 0 2;
+  border: 1 #3E4A66 dotted;
+  background: #E0E9FC;
+}
+.tree A.active,
+.tree A.active:visited {
+  color: #003399;
+  font-weight: bold;
+  background: #C3CEE6;
+  padding: 0 2 0 2;
+}
+.tree A.active:hover {
+  color: #0000EE;
+  padding: 0 2 0 3;
+}
+
+.tree IMG {
+  border: 0;
+  width: 14;
+  height: 14;
+  margin-right: 2;
+}
+.tree IMG.corner {
+  cursor: hand;
+}
+.tree DIV {
+  padding: 0 0 2 16;
+  /*	background: url(<?= $SITE_ROOT ?>/img/tree/cbg.gif) repeat-y; */
+}
+.tree DIV.last {
+  background: #EFF3FF;
+}
+.tree DIV.block {
+  margin-left: -4;
+  padding: 0;
+  display: none;
+  background: #EFF3FF;
+}
+.tree .browse,
+.tree A.browse,
+.tree A.browse:visited {
+  color: #2266CC;
+  /*	font-size: 10px;*/
+}
+
+
+/* --- if Usual --- */
+.tree_usual {
+  font-size: 12px;
+  padding: 3;
+  padding-bottom: 8;
+  padding-left: 8;
+}
+.tree_usual A,
+.tree_usual A:visited {
+  /*	color: #000000; */
+  text-decoration: none;
+}
+.tree_usual A:hover {
+  /*	color: #2266CC; */
+  padding:0 2 0 2;
+  border: 1 #3E4A66 dotted;
+  background: #E0E9FC;
+}
+.tree_usual A.active,
+.tree_usual A.active:visited {
+  color: #003399;
+  font-weight: bold;
+  background: #C3CEE6;
+  padding: 0 2 0 2;
+}
+.tree_usual A.active:hover {
+  color: #0000EE;
+  padding: 0 2 0 3;
+}
+
+.tree_usual DIV {
+  padding-top: 3;
+}
