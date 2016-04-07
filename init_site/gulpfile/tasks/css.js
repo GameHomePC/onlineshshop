@@ -9,12 +9,13 @@ var gulp = require('gulp'),
     prefixer = require('autoprefixer'),
     postcss = require('gulp-postcss'),
     cssmin = require('gulp-minify-css'),
+    gutil = require('gulp-util'),
     stylus = require('gulp-stylus');
 
 var cssFunc = function() {
     gulp.src(config.tasks.css.src)
         .pipe(sourcemaps.init())
-        .pipe(stylus())
+        .pipe(stylus().on('error', gutil.log))
         .pipe(postcss([ prefixer(config.tasks.css.autoprefixer) ]))
         .pipe(cssmin())
         .pipe(sourcemaps.write())

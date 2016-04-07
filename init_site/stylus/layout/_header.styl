@@ -1,0 +1,263 @@
+.header {
+    background: #2db7e5;
+    padding: 35px 0;
+}
+
+.headerBox {
+    background: #ffffff;
+    border-radius: 5px;
+    clearfix();
+
+    &__logo {
+        a {
+            display: block;
+        }
+    }
+
+    &__item {
+        float left;
+        height 65px;
+        box-sizing: border-box;
+
+    }
+
+    &__status {
+        padding: 18px 21px 18px 19px;
+        border-right: 1px solid #e2e2e2;
+    }
+
+    &__select {
+        padding: 16px 38px;
+    }
+
+    &__search {
+        padding-left: 41px;
+        padding-right: 18px;
+    }
+
+    &__list {
+
+    }
+
+    &__account {
+        float right;
+    }
+
+    &__box {
+        verticatfix();
+        box-sizing border-box;
+    }
+}
+
+
+/* statusH */
+.statusH {
+    &__circle {
+        position relative;
+        float: left;
+        border-radius 50%;
+        background #2db7e5;
+        width 29px;
+        height 29px;
+    }
+
+    &__status {
+        position absolute;
+        right -2px;
+        top 0;
+        width 11px;
+        height 11px;
+        border-radius 50%;
+        border: 2px solid #fff;
+        box-sizing border-box;
+
+        &_green {
+            background #7bc244;
+        }
+
+        &_red {
+            background red;
+        }
+    }
+
+    &__text {
+        float: left;
+        line-height 18px;
+        padding-left: 10px;
+        padding-top: 7px;
+        font-size: 16px;
+        color: #279dc5;
+    }
+
+
+}
+
+
+/* selectH */
+.selectH {
+    &__minText {
+        font-size 12px;
+        line-height 16px;
+        color #252525;
+
+        a {
+            color #279dc5;
+            text-decoration none;
+        }
+    }
+
+    &__item {
+
+    }
+
+    &__title {
+        position relative;
+        display inline-block;
+        vertical-align top;
+        font-size 14px;
+        line-height 16px;
+        font-weight bold;
+        color #252525;
+        padding-right: 10px;
+        cursor pointer;
+
+        &:after {
+            position absolute;
+            top: 8px;
+            right: 0;
+            triangle(down, 3px, #000);
+        }
+    }
+
+    &__sub {
+        display none;
+
+        a {
+            display block;
+        }
+    }
+}
+
+
+/* searchH */
+.searchH {
+    &__box {
+        padding 10px 0;
+        width: 270px;
+        clearfix();
+    }
+
+    &__input {
+        float left;
+        width 100%;
+        height 44px;
+        border: 1px solid #dadada;
+        border-radius 3px;
+        background #ffffff;
+        letter-spacing(50, 13);
+        padding-left: 18px;
+        padding-right: 65px;
+        margin-right: -45px;
+    }
+
+    &__button {
+        position relative;
+        float left;
+        width: 45px;
+        height 44px;
+        border: 1px solid #dadada;
+        border-radius 0 3px 3px 0;
+        background #eeeded;
+
+        &:before {
+            display inline-block;
+            font-family $FontAwesome;
+            vertical-align top;
+            color: #606060;
+            content "\f002";
+        }
+    }
+}
+
+/* listH */
+.listH {
+    verticatfix();
+
+    &__item {
+        display inline-block;
+        vertical-align middle;
+        border-right: 1px solid #000;
+        padding: 0 12px;
+
+        &:last-of-type {
+            border-right: none;
+        }
+
+        a {
+            display block;
+            font-size 14px;
+            line-height 16px;
+            color #616161;
+            text-decoration none;
+
+
+            &:before {
+                display inline-block;
+                padding-right: 5px;
+                font-family $FontAwesome;
+                font-size 14px;
+                vertical-align top;
+                color #616161;
+                content "\f006";
+            }
+        }
+    }
+}
+
+.headerBox__account {
+    clearfix();
+
+    .headerBox__box {
+        float left;
+    }
+
+    .selectH {
+        display inline-block;
+        padding: 0 10px;
+    }
+
+    .headerBox__bag {
+        padding 10px 25px 10px 0px;
+    }
+}
+
+/* bagH */
+.bagH {
+    width 33px;
+    height 100%;
+    background #2db7e5;
+    border-radius 3px;
+    text-align center;
+
+    &__number {
+        display block;
+        font-size 11px;
+        line-height 16px;
+        letter-spacing(50, 11);
+        color #fff;
+        margin-bottom 2px;
+        padding-top: 2px;
+    }
+
+    &__icon {
+        display block;
+
+        &:before {
+            display inline-block;
+            font-family $FontAwesome;
+            font-size 16px;
+            color #fff;
+            content "\f07a";
+        }
+    }
+}

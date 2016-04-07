@@ -10,9 +10,9 @@
 //}
 
 /* letter-spacing */
-//letter-spacing($ps, $size) {
-//    letter-spacing: $ps * $size / 1000 + px;
-//}
+letter-spacing($ps, $size) {
+    letter-spacing: ($ps * $size / 1000)px;
+}
 
 /* breakpoints
 320 px, 480 px, 600 px, 768 px, 1024 px, 1280 px и более — PC.
@@ -26,18 +26,23 @@
 //}
 
 /* clearfix */
-clearfix {
+clearfix() {
     &:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 }
 
-/* list_ib */
-list_ib {
-    font-size: 0;
-    display: table;
-    li {display: inline-block; vertical-align: top;}
+/* verticatfix */
+verticatfix() {
+    height 100%;
+    font-size 0;
+
+    &:after {
+        display inline-block;
+        vertical-align middle;
+        height 100%;
+        width 0;
+        content "";
+    }
 }
-
-
 
 /* core-justify */
 core-justify() {
@@ -71,10 +76,8 @@ core-justify() {
 /* triangle */
 triangle($direction = up, $size = 5px, $color = #000000) {
     content: '';
-    position: absolute;
     width: 0;
     height: 0;
-    display: block;
 
     if ($direction == up) {
         border-right: $size solid transparent;

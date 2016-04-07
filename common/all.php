@@ -37,12 +37,14 @@
 // ------------------------------------/
 ?>
 
-<script language=javascript><!--
-var NN=(navigator.appName=='Netscape')
+<script>
+<!--
+    var NN=(navigator.appName=='Netscape');
 //-->
 </script>
 
-<link rel=stylesheet type=text/css href="<?= $SITE_ROOT ?>/init/css/main.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<?= $SITE_ROOT ?>/init/css/main.css">
 
 <script language=javascript><!--
 if (NN) document.write("<link rel=stylesheet type=text/css href='<?= $SITE_ROOT ?>/init/css/main_nn.css'>")
@@ -56,7 +58,7 @@ if (NN) document.write("<?= $site_styles_nn ?>")
 //-->
 </script>
 
-<script language=javascript src="<?= $SITE_ROOT ?>/init/js/_init.js.html"></script>
+<script language=javascript src="<?= $SITE_ROOT ?>/init/js/_init.js.php"></script>
 
 <?= $site_scripts ?>
 
