@@ -15,6 +15,8 @@
   elseif ($url_name!='')
     $cond="url_name='".to_sql($url_name)."'";
 
+echo $PageID;
+
   if ($cond) {
     $PageData=@$sql_fetch_assoc(db_query("select * from site_pages
 		where type and (active or $view_inactive) and $cond"));

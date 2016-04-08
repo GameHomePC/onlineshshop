@@ -7,3 +7,42 @@ input, button {
 button {
     cursor pointer;
 }
+
+/* fieldset */
+.fieldset {
+
+}
+
+/* btn */
+.btn {
+    display block;
+    width 100%;
+    outline none;
+    height 41px;
+    font-family $Arial;
+    font-size 14px;
+    text-align center;
+    padding: 0;
+    box-sizing border-box;
+    transition all 0.2s ease;
+    text-decoration none;
+
+    &:hover {
+        opacity 0.8;
+    }
+
+    &__green {
+        border-radius 5px;
+        background #5ca12c;
+        color #fff;
+        line-height 41px;
+        padding-bottom: 3px;
+
+        span {
+            display block;
+            border-radius 5px;
+            background #77c044;
+            height 100%;
+        }
+    }
+}

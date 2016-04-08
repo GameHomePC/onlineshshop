@@ -1,6 +1,6 @@
 .header {
     background: #2db7e5;
-    padding: 35px 0;
+    padding: 35px 0 0;
 }
 
 .headerBox {
@@ -89,54 +89,12 @@
         color: #279dc5;
     }
 
-
-}
-
-
-/* selectH */
-.selectH {
-    &__minText {
-        font-size 12px;
-        line-height 16px;
-        color #252525;
-
-        a {
-            color #279dc5;
-            text-decoration none;
-        }
-    }
-
-    &__item {
-
-    }
-
-    &__title {
-        position relative;
-        display inline-block;
-        vertical-align top;
-        font-size 14px;
-        line-height 16px;
-        font-weight bold;
-        color #252525;
-        padding-right: 10px;
-        cursor pointer;
-
-        &:after {
-            position absolute;
-            top: 8px;
-            right: 0;
-            triangle(down, 3px, #000);
-        }
-    }
-
-    &__sub {
-        display none;
-
-        a {
-            display block;
-        }
+    a {
+        display block;
+        clearfix();
     }
 }
+
 
 
 /* searchH */
@@ -227,7 +185,7 @@
     }
 
     .headerBox__bag {
-        padding 10px 25px 10px 0px;
+        padding 10px 25px 10px 0;
     }
 }
 
