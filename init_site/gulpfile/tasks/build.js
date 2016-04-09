@@ -8,7 +8,7 @@ var buildFunc = [
     'html:build',
     'sass:build',
     'fonts:build',
-    'image:build',
+    'sprite:build',
     'webpack'
 ];
 

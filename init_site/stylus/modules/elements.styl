@@ -119,7 +119,7 @@
             display block;
             color #747474;
             text-decoration none;
-            padding: 5px 16px;
+            padding: 12px 16px;
             background #fff;
             transition all 0.2s ease;
 
@@ -159,6 +159,7 @@
         padding: 0 3px;
 
         li {
+            position relative;
             float left;
             font-family $Arial;
             font-size 13px;
@@ -166,6 +167,22 @@
             color rgba(255,255,255,0.4);
             margin-right: 38px;
             letter-spacing(25, 13);
+
+            &:last-of-type {
+                &:before {
+                    display none;
+                }
+            }
+
+            &:before {
+                position absolute;
+                top 0;
+                bottom 0;
+                right -20px;
+                margin auto;
+                sprite($arrow-right);
+                content "";
+            }
 
             a {
                 color #fff;

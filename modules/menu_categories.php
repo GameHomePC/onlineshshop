@@ -78,4 +78,4 @@ function writeCategItems($id, $write = 0)
     }
 </script>
 
-<ul class="selectHSub__catalog"><?php writeCategItems(0, 1); ?></ul>
+<?php writeCategItems(0, 1); ?>

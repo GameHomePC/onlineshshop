@@ -18,6 +18,10 @@ var watchFunc = function() {
     watch([config.tasks.fonts.watch], function(event, cb) {
         gulp.start('fonts:build');
     });
+
+    watch([config.tasks.sprite.rootSprite], function(event, cb) {
+        gulp.start('sprite:build');
+    });
 };
 
 gulp.task('watch', watchFunc);

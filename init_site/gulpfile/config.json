@@ -44,6 +44,11 @@
       "dest": "./build/fonts/",
       "watch": "./src/fonts/**/*.*"
     },
+    "sprite": {
+      "rootSprite": "./../img/sprite/*.*",
+      "imagesSprite": "./../img",
+      "cssSprite": "./stylus/sprite"
+    },
     "clean": "./build"
   }
 }

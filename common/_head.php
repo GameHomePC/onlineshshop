@@ -7,197 +7,6 @@
 // ------------------------------------------------/
 ?>
 
-<header class="header">
-    <div class="wrapper">
-        <div class="headerBox">
-            <div class="headerBox__item headerBox__status">
-                <div class="statusH">
-                    <a href="<?php echo $SITE_ROOT . '/'; ?>" title="<?php echo to_html($Config['site_name']); ?>">
-                        <span class="statusH__circle">
-                            <i class="statusH__status statusH__status_green"></i>
-                        </span>
-                        <span class="statusH__text">
-                            <strong>Online</strong> Healthcare
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="headerBox__item headerBox__select">
-                <div class="selectH">
-                    <div class="selectH__minText">Select</div>
-                    <div class="selectH__item">
-                        <span class="selectH__title">Category</span>
-
-                        <div class="selectHSub">
-                            <?php
-                                if (!$Config['left_menu_style']) {
-
-                                    include("$ROOT_PATH/modules/menu_categories.php");
-
-                                } else {
-
-                                    echo '<div class="tree_usual">';
-
-                                    $TreeInfo = $CategItems[$CatID]['tree_info'];
-
-                                    foreach ($CategItems as $id => $item) {
-
-                                        if ($id < 2) continue;
-                                        $lev = $item['level'];
-
-                                        if ($lev != 1 && !strpos($TreeInfo, '_' . str_pad($item['parID'], 6, '0', STR_PAD_LEFT) . '_'))
-                                            continue;
-                                        list($name_, $comm_) = call('to_html', $item['name'], $item['comment']);
-                                        if ($Config['menu_prd_count']) $name_ .= "<nobr>&nbsp;($item[n_prod])</nobr>";
-
-
-                                        $tmp = ($CatID == $id) ? 'class="active"' : '';
-                                        $name_ = "<a href='$SITE_ROOT/$item[href]' title='$comm_' $tmp>$name_</a>";
-
-                                        echo "<div style='padding-left:", (($lev - 1) * 10), "'>$name_</div>";
-
-                                    }
-                                    echo '</div>';
-                                }
-                            ?>
-
-                            <ul class="selectHSub__catalog">
-                                <li><a href='<?= $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
-                                <li><a href='<?= $SITE_ROOT ?>/prod_new.html'>New Products</a></li>
-                                <li><a href='<?= $SITE_ROOT ?>/prod_featured.html'>Featured Products</a></li>
-                                <li><a href='<?= $SITE_ROOT ?>/prod_bestseller.html'>Bestsellers</a></li>
-                                <li><a href='<?= $SITE_ROOT ?>/search_prod.html' rel='nofollow'>extended search</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="headerBox__item headerBox__search">
-                <form
-                    class="searchH"
-                    action="<?= $SITE_ROOT ?>/search_prod.html"
-                    onSubmit="return formSubmitOnce(this, checkFilled(this.search_text,'Enter text for the search'))">
-                    <div class="searchH__box">
-                        <input class="searchH__input"
-                               type="search"
-                               placeholder="Search"
-                               name="search_text"
-                               maxlength="100"
-                               value="<?= to_html($search_text) ?>"
-                            />
-                        <button class="searchH__button"></button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="headerBox__item headerBox__list">
-                <ul class="listH">
-                    <li class="listH__item"><a href="#">Bestsellers</a></li>
-                    <li class="listH__item"><a href="#">Specials</a></li>
-                </ul>
-            </div>
-
-            <div class="headerBox__item headerBox__account">
-                <div class="headerBox__box">
-                    <div class="selectH">
-                        <?php if($CUSTOMER_ID): ?>
-                            <div class="selectH__minText">Hello, <a href="#">Alex</a></div>
-                        <?php else: ?>
-                            <div class="selectH__minText">Hello</div>
-                        <?php endif; ?>
-
-                        <div class="selectH__item">
-                            <?php if($CUSTOMER_ID): ?>
-                                <span class="selectH__title">Your account</span>
-                            <?php else: ?>
-                                <span class="selectH__title">Login</span>
-                            <?php endif; ?>
-
-                            <div class="selectHSub selectHSub__log">
-                                <form>
-                                    <?php if (!$NO_EXTERNAL): ?>
-                                        <fieldset class="fieldset">
-                                            <a href="<?php echo $SITE_ROOT; ?>/login_form.html" class="btn btn__green"><span>Sing in</span></a>
-                                        </fieldset>
-                                    <?php endif; ?>
-
-                                    <ul class="selectHSub__list">
-                                        <?php if(!$NO_EXTERNAL): ?>
-                                            <li><a href="<?php echo $SITE_ROOT; ?>/register_form.html">New customer? <span>Register here</span></a></li>
-                                        <?php endif; ?>
-
-                                        <?php if($CUSTOMER_ID): ?>
-                                            <li><a href="<?= $SECURE_URL_HEADER ?>/account.html">Your account</a></li>
-                                            <li><a href="<?php echo $SITE_ROOT; ?>/logout.html?toploginform_url=<?php echo to_url($REQUEST_URI); ?>">Logout</a></li>
-                                        <?php endif; ?>
-                                    </ul>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="headerBox__box headerBox__bag">
-                    <?php if ($NO_EXTERNAL) { ?>
-
-                        <a href="<?php echo $SC_SITE_URL ?>/sc/sc.php?shop=<?= $SHOP_ID ?>" class="bagH">
-                            <span class="bagH__number">
-                                <script src="<?= $SC_SITE_URL ?>/EXPORT/quantity.php?shop=<?= $SHOP_ID ?>"></script>
-                            </span>
-                            <span class="bagH__icon"></span>
-                        </a>
-
-                    <?php } elseif ($SC_QUANTITY) { ?>
-
-                        <a href="<?php echo $SITE_ROOT ?>/sc.html" class="bagH">
-                            <span class="bagH__number"><?php echo $SC_QUANTITY ?></span>
-                            <span class="bagH__icon"></span>
-                        </a>
-
-                    <?php } else { ?>
-
-                        <div class="bagH">
-                            <span class="bagH__number">0</span>
-                            <span class="bagH__icon"></span>
-                        </div>
-
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="breadCrumbs">
-            <?php
-                if ($Config['show_nav_line'] && !$IsHomePage):
-                    if ($CatID)
-                        if ($PrdID)
-                            $NavLine = getCategPathStr($CatID, 1, 'navline', ' / ', 1, 0) . ' / ' .
-                                ($Config['show_nav_line_last'] ? to_html($Product['name']) : '');
-                        else
-                            $NavLine = getCategPathStr($CatID, 0, 'navline', ' / ', $Config['show_nav_line_last'], 0);
-                    else
-                        $NavLine = (($PageData['type'] == 2) ? "<a href='$SITE_ROOT/articles.html'>Articles</a> /" : '') .
-                            (($Config['show_nav_line_last'] || $IsHomePage) ? " $NavLineTitle" : '')
-                ?>
-
-                <ul class="breadCrumbs__list">
-                    <?php if (!$IsHomePage) { ?>
-                        <li><a href='<?= $SITE_ROOT ?>/'>Online Healthcare</a></li>
-                    <?php } ?>
-
-                    <li>Account My</li>
-
-                    <?php echo $NavLine ?>
-                </ul>
-
-            <?php endif; ?>
-        </div>
-    </div>
-</header>
-
 <?php /* ?>
 
     <table width=100% border=0 cellpadding=0 cellspacing=0 class=pageHeader>
@@ -210,11 +19,6 @@
                 <table cellpadding=0 cellspacing=0 border=0 width=100%>
                     <tr>
                         <td nowrap style='padding:0 25 0 7'>
-                            <a class=menu href="<?= $SITE_ROOT ?>/">Home</a>
-                            <a class=menu href="<?= $SITE_ROOT ?>/news.html">News</a>
-                            <a class=menu href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a>
-                            <a class=menu href="<?= $SITE_ROOT ?>/search.html" rel='nofollow'>Site Search</a>
-
                             <?
                             if ($NO_EXTERNAL) {
                                 ?>
@@ -243,6 +47,245 @@
 
 <?php */ ?>
 
+<div class="window">
+    <header class="header">
+        <div class="wrapper">
+            <div class="headerBox">
+                <div class="headerBox__item headerBox__status">
+                    <div class="statusH">
+                        <a href="<?php echo $SITE_ROOT . '/'; ?>" title="<?php echo to_html($Config['site_name']); ?>">
+                        <span class="statusH__circle">
+                            <i class="statusH__status statusH__status_green"></i>
+                        </span>
+                        <span class="statusH__text">
+                            <strong>Online</strong> Healthcare
+                        </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="headerBox__item headerBox__select">
+                    <div class="selectH">
+                        <div class="selectH__minText">Select</div>
+                        <div class="selectH__item">
+                            <span class="selectH__title">Category</span>
+
+                            <div class="selectHSub">
+                                <ul class="selectHSub__catalog">
+                                    <li><a class=menu href="<?= $SITE_ROOT ?>/">Home</a></li>
+                                    <li><a class=menu href="<?= $SITE_ROOT ?>/news.html">News</a></li>
+                                    <li><a class=menu href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a></li>
+                                    <li><a class=menu href="<?= $SITE_ROOT ?>/search.html" rel='nofollow'>Site Search</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="headerBox__item headerBox__search">
+                    <form
+                        class="searchH"
+                        action="<?= $SITE_ROOT ?>/search_prod.html"
+                        onSubmit="return formSubmitOnce(this, checkFilled(this.search_text,'Enter text for the search'))">
+                        <div class="searchH__box">
+                            <input class="searchH__input"
+                                   type="search"
+                                   placeholder="Search"
+                                   name="search_text"
+                                   maxlength="100"
+                                   value="<?= to_html($search_text) ?>"
+                                />
+                            <button class="searchH__button"></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="headerBox__item headerBox__list">
+                    <ul class="listH">
+                        <li class="listH__item listH_best"><a href="#">Bestsellers</a></li>
+                        <li class="listH__item listH_spec"><a href="#">Specials</a></li>
+                    </ul>
+                </div>
+
+                <div class="headerBox__item headerBox__account">
+                    <div class="headerBox__box">
+                        <div class="selectH">
+                            <?php if($CUSTOMER_ID): ?>
+                                <div class="selectH__minText">Hello, <a href="#">Alex</a></div>
+                            <?php else: ?>
+                                <div class="selectH__minText">Hello</div>
+                            <?php endif; ?>
+
+                            <div class="selectH__item">
+                                <?php if($CUSTOMER_ID): ?>
+                                    <span class="selectH__title">Your account</span>
+                                <?php else: ?>
+                                    <span class="selectH__title">Login</span>
+                                <?php endif; ?>
+
+                                <div class="selectHSub selectHSub__log">
+                                    <form>
+                                        <?php if (!$NO_EXTERNAL): ?>
+                                            <fieldset class="fieldset">
+                                                <a href="<?php echo $SITE_ROOT; ?>/login_form.html" class="btn btn__green"><span>Sing in</span></a>
+                                            </fieldset>
+                                        <?php endif; ?>
+
+                                        <ul class="selectHSub__list">
+                                            <?php if(!$NO_EXTERNAL): ?>
+                                                <li><a href="<?php echo $SITE_ROOT; ?>/register_form.html">New customer? <span>Register here</span></a></li>
+                                            <?php endif; ?>
+
+                                            <?php if($CUSTOMER_ID): ?>
+                                                <li><a href="<?= $SECURE_URL_HEADER ?>/account.html">Your account</a></li>
+                                                <li><a href="<?php echo $SITE_ROOT; ?>/logout.html?toploginform_url=<?php echo to_url($REQUEST_URI); ?>">Logout</a></li>
+                                            <?php endif; ?>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="headerBox__box headerBox__bag">
+                        <?php if ($NO_EXTERNAL) { ?>
+
+                            <a href="<?php echo $SC_SITE_URL ?>/sc/sc.php?shop=<?= $SHOP_ID ?>" class="bagH">
+                            <span class="bagH__number">
+                                <script src="<?= $SC_SITE_URL ?>/EXPORT/quantity.php?shop=<?= $SHOP_ID ?>"></script>
+                            </span>
+                                <span class="bagH__icon"></span>
+                            </a>
+
+                        <?php } elseif ($SC_QUANTITY) { ?>
+
+                            <a href="<?php echo $SITE_ROOT ?>/sc.html" class="bagH">
+                                <span class="bagH__number"><?php echo $SC_QUANTITY ?></span>
+                                <span class="bagH__icon"></span>
+                            </a>
+
+                        <?php } else { ?>
+
+                            <div class="bagH">
+                                <span class="bagH__number">0</span>
+                                <span class="bagH__icon"></span>
+                            </div>
+
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="breadCrumbs">
+                <?php
+                if ($Config['show_nav_line'] && !$IsHomePage):
+                    if ($CatID)
+                        if ($PrdID)
+                            $NavLine = getCategPathStr($CatID, 1, 'navline', ' / ', 1, 0) . ' / ' .
+                                ($Config['show_nav_line_last'] ? to_html($Product['name']) : '');
+                        else
+                            $NavLine = getCategPathStr($CatID, 0, 'navline', ' / ', $Config['show_nav_line_last'], 0);
+                    else
+                        $NavLine = (($PageData['type'] == 2) ? "<a href='$SITE_ROOT/articles.html'>Articles</a> /" : '') .
+                            (($Config['show_nav_line_last'] || $IsHomePage) ? " $NavLineTitle" : '')
+                    ?>
+
+                    <ul class="breadCrumbs__list">
+                        <?php if (!$IsHomePage) { ?>
+                            <li><a href='<?= $SITE_ROOT ?>/'>Online Healthcare</a></li>
+                        <?php } ?>
+
+                        <li>Account My</li>
+
+                        <?php echo $NavLine ?>
+                    </ul>
+
+                <?php endif; ?>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="content">
+        <div class="wrapper">
+            <div class="container container--sidebar container--right">
+                1
+            </div>
+
+            <div class="sidebar sidebar--small">
+                <div class="box">
+                    <div class="box__item">
+                        <div class="boxList">
+                            <h3 class="boxList__title">All Category</h3>
+                            <ul class="boxList__list">
+                                <?php
+                                    if (!$Config['left_menu_style']) {
+
+                                        include("$ROOT_PATH/modules/menu_categories.php");
+
+                                    } else {
+
+                                        echo '<div class="tree_usual">';
+
+                                        $TreeInfo = $CategItems[$CatID]['tree_info'];
+
+                                        foreach ($CategItems as $id => $item) {
+
+                                            if ($id < 2) continue;
+                                            $lev = $item['level'];
+
+                                            if ($lev != 1 && !strpos($TreeInfo, '_' . str_pad($item['parID'], 6, '0', STR_PAD_LEFT) . '_'))
+                                                continue;
+                                            list($name_, $comm_) = call('to_html', $item['name'], $item['comment']);
+                                            if ($Config['menu_prd_count']) $name_ .= "<nobr>&nbsp;($item[n_prod])</nobr>";
+
+
+                                            $tmp = ($CatID == $id) ? 'class="active"' : '';
+                                            $name_ = "<a href='$SITE_ROOT/$item[href]' title='$comm_' $tmp>$name_</a>";
+
+                                            echo "<div style='padding-left:", (($lev - 1) * 10), "'>$name_</div>";
+
+                                        }
+                                        echo '</div>';
+                                    }
+                                ?>
+
+                                <li><a href='<?php echo $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
+                                <li><a href='<?php echo $SITE_ROOT ?>/prod_new.html'>New Products</a></li>
+                                <li><a href='<?php echo $SITE_ROOT ?>/prod_featured.html'>Featured Products</a></li>
+                                <li><a href='<?php echo $SITE_ROOT ?>/prod_bestseller.html'>Bestsellers</a></li>
+                                <li><a href='<?php echo $SITE_ROOT ?>/search_prod.html' rel='nofollow'>extended search</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="box__item">
+                        <div class="boxBanner">
+                            <a href="/">
+                                <img src="<?php echo $SITE_ROOT ?>/img/bunner/image-1.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="box__item">
+                        <div class="boxUps">
+                            <div class="boxUps__images">
+                                <img src="<?php echo $SITE_ROOT ?>/img/ups.png" alt="">
+                            </div>
+
+                            <div class="boxUps__content">
+                                <span>Free UPS Group Shipping</span>
+                                <a href="/">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <table border=0 width=100% cellpadding=0 cellspacing=0 style='margin-top:4;margin-bottom:15;'>
     <tr valign=top>
     <td width=0 style='padding-left:1'>
@@ -251,7 +294,7 @@
         <?
         if ($IsHomePage && $Config['num_news_feat'] &&
             @$sql_num_rows($res = db_query("select nwsID,time,title,content
-		from news where archive=0 
+		from news where archive=0
 		order by time DESC
 		limit $Config[num_news_feat]"))
         ) {

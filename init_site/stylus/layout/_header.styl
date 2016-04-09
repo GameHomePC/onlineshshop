@@ -158,15 +158,28 @@
             color #616161;
             text-decoration none;
 
-
             &:before {
                 display inline-block;
-                padding-right: 5px;
-                font-family $FontAwesome;
-                font-size 14px;
                 vertical-align top;
-                color #616161;
-                content "\f006";
+                padding-right: 5px;
+                margin-top: 2px;
+                content "";
+            }
+        }
+    }
+
+    &_best {
+        a {
+            &:before {
+                sprite($cup);
+            }
+        }
+    }
+
+    &_spec {
+        a {
+            &:before {
+                sprite($star);
             }
         }
     }
@@ -188,6 +201,9 @@
         padding 10px 25px 10px 0;
     }
 }
+
+
+$test = 1px 2px 3px;
 
 /* bagH */
 .bagH {
@@ -212,10 +228,9 @@
 
         &:before {
             display inline-block;
-            font-family $FontAwesome;
-            font-size 16px;
-            color #fff;
-            content "\f07a";
+            vertical-align top;
+            sprite($bag);
+            content "";
         }
     }
 }

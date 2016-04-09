@@ -1,13 +1,13 @@
 /* mixins */
 
 /* sprite */
-//sprite($img) {
-//    background-image: url("../images/#{nth($img, 9)}");
-//    background-repeat: no-repeat;
-//    background-position: nth($img, 3) nth($img, 4);
-//    width: nth($img, 5);
-//    height: nth($img, 6);
-//}
+sprite($img) {
+    background-image: url("../../img/"$img[8]);
+    background-repeat: no-repeat;
+    background-position: $img[2] $img[3];
+    width: $img[4];
+    height: $img[5];
+}
 
 /* letter-spacing */
 letter-spacing($ps, $size) {

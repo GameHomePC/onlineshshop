@@ -44,6 +44,7 @@
 </script>
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic-ext,cyrillic">
 <link rel="stylesheet" type="text/css" href="<?= $SITE_ROOT ?>/init/css/main.css">
 
 <script language=javascript><!--

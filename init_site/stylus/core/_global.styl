@@ -13,3 +13,45 @@ a {
         text-decoration underline;
     }
 }
+
+.left { text-align: left; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+.window {
+
+}
+
+.content {
+    clearfix();
+    padding: 30px 0;
+}
+
+.container {
+    width: 100%;
+    box-sizing border-box;
+
+    &--sidebar {
+        float left;
+    }
+
+    &--right {
+        margin-right: -270px;
+        padding-right: 297px;
+    }
+
+    &--left {
+        margin-left: -270px;
+        padding-left: 297px;
+    }
+}
+
+.sidebar {
+    position relative;
+
+    &--small {
+        float left;
+        width: 270px;
+    }
+
+}
