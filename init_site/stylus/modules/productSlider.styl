@@ -1,0 +1,153 @@
+.productSlider {
+    overflow hidden;
+    border: 1px solid #2db7e5;
+    border-radius: 8px;
+    margin-bottom: 32px;
+
+    * {
+        outline none;
+    }
+
+    &__item {
+        clearfix();
+        border-radius: 8px;
+    }
+
+    &__images {
+        position relative;
+        float left;
+        padding: 18px 0 10px 88px;
+
+        img {
+            max-width 100%;
+        }
+    }
+
+    &__content {
+        float left;
+        margin-left: -252px;
+        padding-left: 290px;
+        padding-right: 30px;
+        padding-top: 35px;
+        width: 100%;
+        box-sizing border-box;
+    }
+
+    &__title {
+        font-family $Roboto;
+        font-size 25px;
+        line-height 33px;
+        color #2db7e5;
+        margin-bottom: 21px;
+    }
+
+    &__button {
+        display inline-block;
+        vertical-align top;
+        border: 1px solid #80c948;
+        background #71b03d;
+        border-radius: 5px;
+        padding-bottom: 3px;
+    }
+
+    &__buttonBox {
+        background #8ad14f;
+        border-radius: 5px;
+        height 43px;
+        box-sizing border-box;
+        font-size 15px;
+        line-height 43px;
+        letter-spacing(25, 15);
+        clearfix();
+    }
+
+    &__price {
+        float left;
+        color: #55882e;
+        border-right: 1px solid #70b03c;
+        padding 0 17px;
+    }
+
+    &__buy {
+        float left;
+        color #ffffff;
+        padding 0 30px;
+
+        &:before {
+            display inline-block;
+            vertical-align top;
+            margin-top: 12px;
+            margin-right: 9px;
+            sprite($bag);
+            content "";
+        }
+    }
+
+    .slick-arrow {
+        position absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #dadada;
+        border-radius 3px;
+        background linear-gradient(to bottom, #ffffff, #eeeeee);
+        text-indent -9999em;
+        z-index 10;
+
+        &:before {
+            position absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin auto;
+            sprite($arrow-slider);
+            content "";
+        }
+
+        &.slick-prev {
+            left: 15px;
+        }
+
+        &.slick-next {
+            right: 15px;
+
+            &:before {
+                transform rotate(180deg);
+            }
+        }
+    }
+
+    .slick-dots {
+        text-align center;
+        padding-bottom: 12px;
+
+        li {
+            display inline-block;
+            vertical-align top;
+            width 14px;
+            height 14px;
+            border-radius 50%;
+            background rgba(204,204,204, 0.3);
+            margin-right: 10px;
+            cursor pointer;
+            transition all 0.2s ease;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            &.slick-active {
+                background #cccccc;
+            }
+
+            button {
+                background none;
+                text-indent -9999em;
+                padding 0;
+            }
+        }
+    }
+}

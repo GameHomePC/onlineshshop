@@ -176,3 +176,20 @@ function topForgotPassword() {
     f.submit();
 }
 
+(function($j) {
+
+    $j(function() {
+        var productSlider = $j('#productSlider');
+
+
+        if(productSlider.length) {
+            productSlider.slick({
+                dots: true
+            });
+        }
+
+
+    });
+
+})(jQuery);
+

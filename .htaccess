@@ -1,3 +1,87 @@
+
+#CharsetDisable On
+
+#AddDefaultCharset iso-8859-1
+
+#Options -Indexes ExecCGI FollowSymLinks MultiViews Includes
+
+DirectoryIndex index.phtml index.php index.shtml index.html index.htm /gohome.php
+
+AddType application/x-httpd-php .phtml .php
+
+
+ErrorDocument 403 /error403.php
+ErrorDocument 404 /error404.php
+
+php_flag ignore_user_abort On
+php_value variables_order EGPCS
+php_flag magic_quotes_gpc Off
+php_flag register_argc_argv Off
+php_flag register_globals On
+php_value error_reporting 2039
+#php_value error_reporting "E_ALL&~E_NOTICE"
+php_flag session.use_trans_sid Off
+php_value post_max_size 16M
+php_value upload_max_filesize 10M
+php_value max_execution_time 600
+php_value max_input_time 1200
+php_value memory_limit 32M
+php_flag allow_url_fopen On
+php_value output_buffering 0
+php_flag track_errors On
+php_value session.gc_maxlifetime 10800
+
+
 RewriteEngine on
 
-RewriteRule ^([^\s]*).html$ $1.php [L]
+# -----------------------------------------\\
+RewriteCond	%{QUERY_STRING}	(^|&)(R|%52)(O|%4[Ff]){2}(T|%54)
+RewriteRule	^	-	[F]
+# -----------------------------------------//
+
+# ------- Google SiteMap ------------------\\
+RewriteRule	^sitemap\.xml$	/sitemap.php	[NC,L]
+# -----------------------------------------//
+
+# ------- Common Rules --------------------\\
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteCond	%{REQUEST_FILENAME}	!-f
+RewriteCond	%{QUERY_STRING}	!WAS_REWRITED
+RewriteRule	\.html?$	%{REQUEST_URI}	[NC,C]
+RewriteRule	^(.*)$	$1?WAS_REWRITED=1	[NC,C,QSA]
+RewriteRule	^([^.]*/([0-9]+|[^/]*[a-z][^/_]*))((_[0-9]*)*)\.html?	$1.php?args=$3	[NC,L,QSA]
+# -----------------------------------------//
+
+# ----------- Pages -----------------------\\
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteCond	%{REQUEST_FILENAME}	!-f
+RewriteRule	^page[/_]([a-z0-9\-]+)\.(php|p?html?)?$	/page.php?url_name=$1	[NC,L,QSA]
+# -----------------------------------------//
+
+# ------- Manufacturers -------------------\\
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteCond	%{REQUEST_FILENAME}	!-f
+RewriteRule	^manufacturer(s/|_)([a-z0-9\-]+)(_page([0-9]+))?\.(php|p?html?)$	/manufacturer.php?url_name=$2&page=$4&a=3	[NC,L,QSA]
+# -----------------------------------------//
+
+# --------- Products ----------------------\\
+# usual url-format
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteCond	%{REQUEST_FILENAME}	!-f
+RewriteRule	^product(s/|_)([a-z0-9\-]+)\.(php|p?html?)$	/product.php?url_name=$2	[NC,L,QSA]
+# -----------------------------------------//
+
+# --------- Categories --------------------\\
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteCond	%{REQUEST_FILENAME}	!-f
+RewriteRule	^(categor(ies/|y_))?([a-z0-9\-]+)(_page([0-9]+))?((/(index\.(php|p?html?))?)|(\.(php|p?html?)))?$	/category.php?url_name=$3&page=$5	[NC,L,QSA]
+# -----------------------------------------//
+
+# --------- Products ----------------------\\
+# special url-format with Category
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteCond	%{REQUEST_FILENAME}	!-f
+RewriteRule	^(categor(ies/|y_))?([a-z0-9\-]+)/([a-z0-9\-]+)\.(php|p?html?)$	/product.php?url_name=$4&cat_url_name=$3	[NC,L,QSA]
+# -----------------------------------------//
+
+

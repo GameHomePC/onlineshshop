@@ -1,53 +1,53 @@
 <?
 // ====================================\
-  @include_once('_dir.php');
+@include_once('_dir.php');
 // ====================================/
 
 // -------------------------------------------\
-  $PrdID=(int)$args[0];
-  $url_name=trim(trim($url_name),'/');
-  $cat_url_name=trim(trim($cat_url_name),'/');
+$PrdID=(int)$args[0];
+$url_name=trim(trim($url_name),'/');
+$cat_url_name=trim(trim($cat_url_name),'/');
 // -------------------------------------------/
 
 // --------------------------------------------------\
-  $ActiveCatsOnly=1;
-  include_once("$ROOT_PATH/modules/sc_category.php");
+$ActiveCatsOnly=1;
+include_once("$ROOT_PATH/modules/sc_category.php");
 // --------------------------------------------------/
 
-  if ($url_name!='') {
+if ($url_name!='') {
 //----------------------------------------\
-  if (check_int($url_name)) {
-    $PrdID=(int)$url_name;
-    $url_name='';
+    if (check_int($url_name)) {
+        $PrdID=(int)$url_name;
+        $url_name='';
     }
-  elseif ($Config['prd_name_to_url'] &&
-	($n=sizeof($tmp=explode('-',$url_name)))>1 &&
-	$tmp[$n-1][0]=='p' &&
-	check_int($a=@substr($tmp[$n-1],1)) ) {
-    $PrdID=(int)$a;
-    $url_name='';
+    elseif ($Config['prd_name_to_url'] &&
+        ($n=sizeof($tmp=explode('-',$url_name)))>1 &&
+        $tmp[$n-1][0]=='p' &&
+        check_int($a=@substr($tmp[$n-1],1)) ) {
+        $PrdID=(int)$a;
+        $url_name='';
     }
 //----------------------------------------/
-    }
+}
 
-  $cond=0;
-  if ($url_name!='')
+$cond=0;
+if ($url_name!='')
     $cond="pn.url_name='".to_sql($url_name)."'";
-  elseif ($PrdID)
+elseif ($PrdID)
     $cond="p.prdID=$PrdID";
 
-  if ($cond && $cat_url_name!='')
+if ($cond && $cat_url_name!='')
     if ($c_id=$CategUrlToID[$cat_url_name])
-      $cond.=" and cp.catID=$c_id";
+        $cond.=" and cp.catID=$c_id";
     else $cond=0;
 
-  if ($cond) {
+if ($cond) {
 // ----------------------------------------------------------------------------\
-  if (!$view_inactive)
-    $cond.=" and p.active and cp.catID in ($CategItemsActKeys)";
+    if (!$view_inactive)
+        $cond.=" and p.active and cp.catID in ($CategItemsActKeys)";
 
-  $Product=@$sql_fetch_assoc(db_query(
-	"select p.prdID as prdID,cp.catID as catID,
+    $Product=@$sql_fetch_assoc(db_query(
+        "select p.prdID as prdID,cp.catID as catID,
 		in_stock,attributes,quantity as max_quantity,
 		p.price_type as price_type,price,spec_price,spec_time1,spec_time2,
 		pn.price_type as price_type_new,
@@ -87,23 +87,23 @@
 	  left join sc_manufacturer_newval as mn on mn.mnfID=m.mnfID
 	where $cond and cp.prdID=p.prdID and time_available<=$TIME
 	limit 1"));
-  $PrdID=$Product['prdID'];
-  $CatID=$Product['catID'];
+    $PrdID=$Product['prdID'];
+    $CatID=$Product['catID'];
 // ----------------------------------------------------------------------------/
-    }
+}
 
-  if (!$cond || !$PrdID)
+if (!$cond || !$PrdID)
     $RedirectUrl="$SITE_ROOT/";
-  else {
+else {
     $PageTitle=$Product['name'];
     if ($Product['description']=='') $Product['description']=$Product['comment'];
     $Meta['title']=$Product['meta_title'] ? $Product['meta_title'] : $Product['name'];
     $Meta['keywords']=$Product['meta_keywords'] ? $Product['meta_keywords'] : $Product['name'];
     $Meta['description']=$Product['meta_description'] ? $Product['meta_description'] :
-	($Product['comment'] ? $Product['comment'] : $Product['name']);
-    }
+        ($Product['comment'] ? $Product['comment'] : $Product['name']);
+}
 
-  include_once("$ROOT_PATH/common/all_head.php");
+include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
 
@@ -113,10 +113,10 @@ extract($Product);
 //$name=to_html($name);
 
 list($spec,$price_str,$old_price_str)=
-	make_prd_price($price,$price_type,$spec_price,$spec_time1,$spec_time2,$price_type_new);
+    make_prd_price($price,$price_type,$spec_price,$spec_time1,$spec_time2,$price_type_new);
 
 $price_str=($old_price_str ? '<s class=warn>$'.$old_price_str.'</s> ' : '').
-	'$'.$price_str;
+    '$'.$price_str;
 
 $Product['Special']=$spec ? 1 : 0;
 
@@ -137,10 +137,10 @@ foreach ($tmp as $opt => $price)
 $Product['Price']=$price;
 
 if ($attributes && $in_stock && $max_quantity)
-  $form='<br>'.
-	($INCLUDE_PRODUCT_FORM_FROM_SHOPXML ?
-	     _LOAD_DATA("$SC_SITE_URL/EXPORT/product.php?shop=$SHOP_ID&product=$PrdID&template=FORM&quantity=$quantity&new_order_url=".to_url("$SITE_ROOT/buy.html?continueCat=$CatID")) : 
-	     make_form($Product,0,$quantity,$max_quantity,$CatID));
+    $form='<br>'.
+        ($INCLUDE_PRODUCT_FORM_FROM_SHOPXML ?
+            _LOAD_DATA("$SC_SITE_URL/EXPORT/product.php?shop=$SHOP_ID&product=$PrdID&template=FORM&quantity=$quantity&new_order_url=".to_url("$SITE_ROOT/buy.html?continueCat=$CatID")) :
+            make_form($Product,0,$quantity,$max_quantity,$CatID));
 else $form='';
 
 //-----------------------------|
@@ -153,20 +153,20 @@ $show_big_img=$uplID3 && ($Config['img_prd_big'] || (!$uplID2 && !$uplID1));
 
 $image='';
 if ($show_big_img) {
-	$image=$img_not_loaded3 ? $fname3 : "$SITE_ROOT/$fname3";
-	$width=$width3;
-	$height=$height3;
-	}
+    $image=$img_not_loaded3 ? $fname3 : "$SITE_ROOT/$fname3";
+    $width=$width3;
+    $height=$height3;
+}
 elseif ($uplID2) {
-	$image=$img_not_loaded2 ? $fname2 : "$SITE_ROOT/$fname2";
-	$width=$width2;
-	$height=$height2;
-	}
+    $image=$img_not_loaded2 ? $fname2 : "$SITE_ROOT/$fname2";
+    $width=$width2;
+    $height=$height2;
+}
 elseif ($uplID1) {
-	$image=$img_not_loaded1 ? $fname1 : "$SITE_ROOT/$fname1";
-	$width=$width1;
-	$height=$height1;
-	}
+    $image=$img_not_loaded1 ? $fname1 : "$SITE_ROOT/$fname1";
+    $width=$width1;
+    $height=$height1;
+}
 //else $image="$SITE_ROOT/img/1x1w.gif";
 
 if ($width>$W) { $height=(int)($height*$W/$width); $width=$W;}
@@ -174,74 +174,74 @@ if ($height>$H) { $width=(int)($width*$H/$height); $height=$H;}
 if (($uplID1 || $uplID2 || $uplID3) && (!$width || !$height)) { $width=200; $height=200; }
 
 if ($image) {
-  $image="<img src='$image' width=$width height=$height alt='".to_html($name)."'".
-	(($uplID3 && !$show_big_img) ? " title='Enlarge'" : '').
-	" style='border:1 #0000FF solid;margin-bottom:7'><br>";
-  if ($uplID3 && !$show_big_img) {
-	$img_url=($img_not_loaded3 ? '' : "$SITE_ROOT/").$fname3;
-	$image="<a href='$img_url' target=_blank
+    $image="<img src='$image' width=$width height=$height alt='".to_html($name)."'".
+        (($uplID3 && !$show_big_img) ? " title='Enlarge'" : '').
+        " style='border:1 #0000FF solid;margin-bottom:7'><br>";
+    if ($uplID3 && !$show_big_img) {
+        $img_url=($img_not_loaded3 ? '' : "$SITE_ROOT/").$fname3;
+        $image="<a href='$img_url' target=_blank
 		onClick='makePullDown(\"$img_url\",\"img$uplID3\",$width3+20,$height3+20,1);return false'>$image</a>";
-	}
-  }
+    }
+}
 ?>
 
 
-  <table border=0 cellspacing=0 cellpadding=0 width=99%>
-  <tr valign=top> 
-    <td align=center nowrap>
-      <?= $image ?>
-      <b><?= $price_str ?></b><br>
-      <img src='<?= $SITE_ROOT ?>/img/1x1.gif' width=1 height=7 alt=''><br>
+<table border=0 cellspacing=0 cellpadding=0 width=99%>
+    <tr valign=top>
+        <td align=center nowrap>
+            <?= $image ?>
+            <b><?= $price_str ?></b><br>
+            <img src='<?= $SITE_ROOT ?>/img/1x1.gif' width=1 height=7 alt=''><br>
 
-<? if ($in_stock && $max_quantity) { ?>
-<? if (!$Product['attributes']) { ?>
-<a href="<?= make_buy_url($prdID,$CatID) ?>" rel='nofollow'><img src="<?= $SITE_ROOT ?>/img/buttons/buynow.gif" width=87 height=29 border=0 alt="Buy Now!"></a>
-<? }} else { ?>
-<b class=warn>OUT&nbsp;</b>
-<? } ?>
+            <? if ($in_stock && $max_quantity) { ?>
+                <? if (!$Product['attributes']) { ?>
+                    <a href="<?= make_buy_url($prdID,$CatID) ?>" rel='nofollow'><img src="<?= $SITE_ROOT ?>/img/buttons/buynow.gif" width=87 height=29 border=0 alt="Buy Now!"></a>
+                <? }} else { ?>
+                <b class=warn>OUT&nbsp;</b>
+            <? } ?>
 
-      <div class=small><br><br>
-      <a href="<?= $SITE_ROOT ?>/search_prod.html" rel='nofollow' onClick='location="<?= $SITE_ROOT ?>/search_prod.html?search_text=<?= to_url($name) ?>&s_any_word=1"; return false'><img src="<?= $SITE_ROOT ?>/img/buttons/search.gif" width=16 height=16 border=0 
-		align=absmiddle hspace=5 alt="Search similar item" rel=nofollow>Search similar item</a>
-      </div>
+            <div class=small><br><br>
+                <a href="<?= $SITE_ROOT ?>/search_prod.html" rel='nofollow' onClick='location="<?= $SITE_ROOT ?>/search_prod.html?search_text=<?= to_url($name) ?>&s_any_word=1"; return false'><img src="<?= $SITE_ROOT ?>/img/buttons/search.gif" width=16 height=16 border=0
+                                                                                                                                                                                                     align=absmiddle hspace=5 alt="Search similar item" rel=nofollow>Search similar item</a>
+            </div>
 
-    </td>
-    <td width=20>&nbsp;&nbsp;&nbsp;</td>
-    <td width=100% style='text-align:justify'>
-	<?=
-	  (($mnfID) ? "<div align=right style='padding:3;margin-bottom:7'><span class=button3>Manufacturer: <a href='$SITE_ROOT/manufacturer_$mnf_url_name.html'>$mnf_name</a></span></div>" : ''),
-	  (($description!='') ? $description.'<br>' : ''),
-	  $form
-	?>
-    </td>
-  </tr>
-  </table>
+        </td>
+        <td width=20>&nbsp;&nbsp;&nbsp;</td>
+        <td width=100% style='text-align:justify'>
+            <?=
+            (($mnfID) ? "<div align=right style='padding:3;margin-bottom:7'><span class=button3>Manufacturer: <a href='$SITE_ROOT/manufacturer_$mnf_url_name.html'>$mnf_name</a></span></div>" : ''),
+            (($description!='') ? $description.'<br>' : ''),
+            $form
+            ?>
+        </td>
+    </tr>
+</table>
 
 <?
 if ($Config['show_related_prds']) {
-  echo '<hr width=100% noshade size=1 color=#E5E3E3 align=left>';
+    echo '<hr width=100% noshade size=1 color=#E5E3E3 align=left>';
 //-------------------------------------\
-$ModuleData=array(
-	'page' => 0,
-	'pages_url' => '',
-	'head_title' => 'RELATED PRODUCTS',
-	'catID' => $CatID, // 0
-	'condition' => "price>$Product[price]",
-	'search_text' => $Product['name'],
-	'any_word' => 1,
-	'cols' => 0,
-	'rows' => 2,
-	'rand' => 1,
-	'show_desc' => 1
-	);
+    $ModuleData=array(
+        'page' => 0,
+        'pages_url' => '',
+        'head_title' => 'RELATED PRODUCTS',
+        'catID' => $CatID, // 0
+        'condition' => "price>$Product[price]",
+        'search_text' => $Product['name'],
+        'any_word' => 1,
+        'cols' => 0,
+        'rows' => 2,
+        'rand' => 1,
+        'show_desc' => 1
+    );
 
-include('modules/products_search.php');
+    include('modules/products_search.php');
 //-------------------------------------/
-  }
+}
 ?>
 
 <br>
 
 <?
-  include_once("$ROOT_PATH/common/all_tail.php");
+include_once("$ROOT_PATH/common/all_tail.php");
 ?>
