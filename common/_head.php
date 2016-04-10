@@ -185,7 +185,7 @@
             if ($Config['show_nav_line'] && !$IsHomePage):
                 if ($CatID)
                     if ($PrdID)
-                        $NavLine = getCategPathStr($CatID, 1, 'navline', ' / ', 1, 0) . ' / ' .
+                        $NavLine = getCategPathStr($CatID, 1, 'navline', ' / ', 1, 0) .
                             ($Config['show_nav_line_last'] ? to_html($Product['name']) : '');
                     else
                         $NavLine = getCategPathStr($CatID, 0, 'navline', ' / ', $Config['show_nav_line_last'], 0);
@@ -199,9 +199,7 @@
                         <li><a href='<?= $SITE_ROOT ?>/'>Online Healthcare</a></li>
                     <?php } ?>
 
-                    <li>Account My</li>
-
-                    <?php echo $NavLine ?>
+                    <li><?php echo $NavLine ?></li>
                 </ul>
 
             <?php endif; ?>
