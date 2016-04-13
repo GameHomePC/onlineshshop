@@ -433,6 +433,17 @@
 
 /* filter */
 .filter {
+    border: 2px solid #b1eaff;
+    border-radius: 4px;
+    padding: 20px 39px;
+    box-sizing border-box;
+    margin-bottom: 28px;
+
+    form {
+        font-size 0;
+        core-justify();
+    }
+
     &__title {
         font-family $Roboto;
         font-size 15px;
@@ -440,7 +451,32 @@
         color #1d1d1d;
     }
 
+    &__item {
+        display inline-block;
+        vertical-align bottom;
+        margin-right: 32px;
+        width 20%;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
     &__content {
 
+    }
+
+    &__line {
+        font-family Arial;
+        font-size 13px;
+        line-height 37px;
+        color #dadada
+        padding: 0 5px;
+    }
+
+    .btn {
+        max-width: 170px;
+        font-size 15px;
+        font-family $Roboto;
     }
 }

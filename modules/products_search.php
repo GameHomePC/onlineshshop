@@ -193,66 +193,45 @@ void();
 
     <?php /*echo $pagebar_top;*/ ?>
 
-    <div class="productSlider" id="productSlider">
-        <div class="productSlider__item">
-            <div class="productSlider__images">
-                <img src="<?php echo $SITE_ROOT ?>/img/images-1-slider.png" alt="">
-            </div>
-
-            <div class="productSlider__content">
-                <div class="productSlider__title">
-                    10 Panel Dip Drug Testing Kit, Test for 10 Different Drugs.
-                </div>
-
-                <div class="productSlider__button">
-                    <div class="productSlider__buttonBox">
-                        <span class="productSlider__price">from $25.49</span>
-                        <span class="productSlider__buy">shop now</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="productSlider__item">
-            <div class="productSlider__images">
-                <img src="<?php echo $SITE_ROOT ?>/img/images-1-slider.png" alt="">
-            </div>
-
-            <div class="productSlider__content">
-                <div class="productSlider__title">
-                    10 Panel Dip Drug Testing Kit, Test for 10 Different Drugs.
-                </div>
-
-                <div class="productSlider__button">
-                    <div class="productSlider__buttonBox">
-                        <span class="productSlider__price">from $25.49</span>
-                        <span class="productSlider__buy">shop now</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="productSlider__item">
-            <div class="productSlider__images">
-                <img src="<?php echo $SITE_ROOT ?>/img/images-1-slider.png" alt="">
-            </div>
-
-            <div class="productSlider__content">
-                <div class="productSlider__title">
-                    10 Panel Dip Drug Testing Kit, Test for 10 Different Drugs.
-                </div>
-
-                <div class="productSlider__button">
-                    <div class="productSlider__buttonBox">
-                        <span class="productSlider__price">from $25.49</span>
-                        <span class="productSlider__buy">shop now</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="grid">
+
+        <div class="filter">
+            <form action='search_prod.html' style='margin:0'>
+                <div class="filter__item">
+                    <div class="filter__title">Category</div>
+                    <div class="filter__content">
+                        <div class="select">
+                            <?php echo $cat_sel; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter__item">
+                    <div class="filter__title">Price</div>
+                    <div class="filter__content">
+                        <input class="input-text" placeholder="From" type="text" name="min_price" size="3" maxlength="10" value="<?php echo $min_price ? $min_price : '' ?>">
+                        <span class="filter__line">&mdash;</span>
+                        <input class="input-text" placeholder="To" type="text" name="max_price" size="3" maxlength="10" value="<?php echo $max_price ? $max_price : '' ?>">
+                    </div>
+                </div>
+
+                <div class="filter__item">
+                    <div class="filter__content">
+                        <label class="checkbox">
+                            <input type=checkbox name='s_any_word' <?php echo $s_any_word ? 'checked' : '' ?>>
+                            <i></i>
+                            <span>Any Word</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter__item">
+                    <div class="filter__content">
+                        <button class="btn btn__blue" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
         <?php
         $WidthPer = (int)(100 / $Cols);
@@ -327,9 +306,9 @@ void();
 
                         <div class="grid__button">
                             <?php if ($in_stock && $quantity) { ?>
-                                <a class="grid__linkB" href="<?php echo $href1; ?>" rel='nofollow'>Buy now</a>
+                                <a class="btn btn__blue" href="<?php echo $href1; ?>" rel='nofollow'>Buy now</a>
                             <?php } else { ?>
-                                <b class="grid__linkB">OUT</b>
+                                <b class="btn btn__blue">OUT</b>
                             <?php } ?>
                         </div>
 

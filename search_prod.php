@@ -30,35 +30,7 @@ if ($max_price)
 if ($tmp) $condition = implode(' and ', $tmp);
 ?>
 
-<div class="filter">
-    <form action='search_prod.html' style='margin:0'>
-        <div class="filter__item">
-            <div class="filter__title">Category</div>
-            <div class="filter__content">
-                <div class="select">
-                    <?php echo $cat_sel; ?>
-                </div>
-            </div>
-        </div>
 
-        <div class="filter__item">
-            <div class="filter__title">Price</div>
-            <div class="filter__content">
-                <input placeholder="From" type="text" name="min_price" size="3" maxlength="10" value="<?php echo $min_price ? $min_price : '' ?>">
-                <span>-</span>
-                <input placeholder="To" type="text" name="max_price" size="3" maxlength="10" value="<?php echo $max_price ? $max_price : '' ?>">
-            </div>
-        </div>
-
-        <div class="filter__item">
-            <div class="filter__content">
-                <input type="submit" class="btn" value="Search">
-            </div>
-        </div>
-
-<!--        <input type=checkbox name='s_any_word' --><?//= $s_any_word ? 'checked' : '' ?><!-->-->
-    </form>
-</div>
 
 <?
 //-------------------------------------\
