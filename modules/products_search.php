@@ -173,7 +173,7 @@ void();
             }
             $tmp[] = ($i == $p) ?
                 "<div class='pagination__page'>$p</div>" :
-                "<a class='pagination__page' href='" . str_replace('<page>', ($i - 1), $ModuleData['pages_url']) . "'><u>$i</u></a>";
+                "<a class='pagination__page' href='" . str_replace('<page>', ($i - 1), $ModuleData['pages_url']) . "'>$i</a>";
         }
         $tmp = implode('&nbsp; ', $tmp);
 
@@ -189,49 +189,133 @@ void();
     }
 
     ?>
-<div class="container container--sidebar container--right">
+<div class="sidebar sidebar--small">
+    <div class="box">
+        <div class="box__item">
+            <div class="boxList">
+                <h3 class="boxList__title">All Category</h3>
+                <ul class="boxList__list">
+                    <?php
+                    if (!$Config['left_menu_style']) {
 
-    <?php /*echo $pagebar_top;*/ ?>
+                        include("$ROOT_PATH/modules/menu_categories.php");
+
+                    } else {
+
+                        echo '<div class="tree_usual">';
+
+                        $TreeInfo = $CategItems[$CatID]['tree_info'];
+
+                        foreach ($CategItems as $id => $item) {
+
+                            if ($id < 2) continue;
+                            $lev = $item['level'];
+
+                            if ($lev != 1 && !strpos($TreeInfo, '_' . str_pad($item['parID'], 6, '0', STR_PAD_LEFT) . '_'))
+                                continue;
+                            list($name_, $comm_) = call('to_html', $item['name'], $item['comment']);
+                            if ($Config['menu_prd_count']) $name_ .= "<nobr>&nbsp;($item[n_prod])</nobr>";
+
+
+                            $tmp = ($CatID == $id) ? 'class="active"' : '';
+                            $name_ = "<a href='$SITE_ROOT/$item[href]' title='$comm_' $tmp>$name_</a>";
+
+                            echo "<div style='padding-left:", (($lev - 1) * 10), "'>$name_</div>";
+
+                        }
+                        echo '</div>';
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+
+        <div class="box__item">
+            <div class="boxList">
+                <h3 class="boxList__title">Bestsellers</h3>
+                <ul class="boxList__list_best">
+                    <?php
+                    $ModuleData = array(
+                        'header' => 'Bestsellers',
+                        'condition' => '',
+                        'order' => 'p.num_choosed desc,priority,rand()',
+                        'block_head' => "<img src='$SITE_ROOT/img/1x1.gif' width=1 height=4 alt=''><br>"
+                    );
+                    include("$ROOT_PATH/modules/products_block.php");
+                    ?>
+
+                    <?php
+                        $tmpOne = $CatID ? "categories like '%:$CatID:%'" : 0;
+                        $resOne = db_query("select name,products from sc_list where active and col=1 and length(products)>2 and (all_pages or $tmpOne)");
+
+                        while ($lst = @$sql_fetch_assoc($resOne)) {
+                            if ($prds = array_filter(call('intval', explode(':', $lst['products'])))) {
+                                $ModuleData = array(
+                                    'header' => $lst['name'],
+                                    'condition' => 'p.prdID in (' . implode(',', $prds) . ')',
+                                    'order' => 'priority,rand()',
+                                    'block_head' => "<img src='$SITE_ROOT/img/1x1.gif' width=1 height=4 alt=''><br>"
+                                );
+                                include("$ROOT_PATH/modules/products_block.php");
+                            }
+                        }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container container--sidebar container--left">
+
+    <ul class="decorLink">
+        <li><a href='<?php echo $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
+        <li><a href='<?php echo $SITE_ROOT ?>/prod_new.html'>New Products</a></li>
+        <li><a href='<?php echo $SITE_ROOT ?>/prod_featured.html'>Featured Products</a></li>
+        <li><a href='<?php echo $SITE_ROOT ?>/prod_bestseller.html'>Bestsellers</a></li>
+    </ul>
+
+    <?php if($cat_sel): ?>
+        <div class="filter">
+        <form action='search_prod.html' style='margin:0'>
+            <div class="filter__item">
+                <div class="filter__title">Category</div>
+                <div class="filter__content">
+                    <div class="select">
+                        <?php echo $cat_sel; ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter__item">
+                <div class="filter__title">Price</div>
+                <div class="filter__content">
+                    <input class="input-text" placeholder="From" type="text" name="min_price" size="3" maxlength="10" value="<?php echo $min_price ? $min_price : '' ?>">
+                    <span class="filter__line">&mdash;</span>
+                    <input class="input-text" placeholder="To" type="text" name="max_price" size="3" maxlength="10" value="<?php echo $max_price ? $max_price : '' ?>">
+                </div>
+            </div>
+
+            <div class="filter__item">
+                <div class="filter__content">
+                    <label class="checkbox">
+                        <input type=checkbox name='s_any_word' <?php echo $s_any_word ? 'checked' : '' ?>>
+                        <i></i>
+                        <span>Any Word</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter__item">
+                <div class="filter__content">
+                    <button class="btn btn__blue" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <?php endif; ?>
 
     <div class="grid">
-
-        <div class="filter">
-            <form action='search_prod.html' style='margin:0'>
-                <div class="filter__item">
-                    <div class="filter__title">Category</div>
-                    <div class="filter__content">
-                        <div class="select">
-                            <?php echo $cat_sel; ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filter__item">
-                    <div class="filter__title">Price</div>
-                    <div class="filter__content">
-                        <input class="input-text" placeholder="From" type="text" name="min_price" size="3" maxlength="10" value="<?php echo $min_price ? $min_price : '' ?>">
-                        <span class="filter__line">&mdash;</span>
-                        <input class="input-text" placeholder="To" type="text" name="max_price" size="3" maxlength="10" value="<?php echo $max_price ? $max_price : '' ?>">
-                    </div>
-                </div>
-
-                <div class="filter__item">
-                    <div class="filter__content">
-                        <label class="checkbox">
-                            <input type=checkbox name='s_any_word' <?php echo $s_any_word ? 'checked' : '' ?>>
-                            <i></i>
-                            <span>Any Word</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="filter__item">
-                    <div class="filter__content">
-                        <button class="btn btn__blue" type="submit">Search</button>
-                    </div>
-                </div>
-            </form>
-        </div>
 
         <?php
         $WidthPer = (int)(100 / $Cols);
@@ -295,25 +379,24 @@ void();
             $href1 = $attributes ? $href : make_buy_url($prdID, $ModuleData['catID']);
             ?>
 
-            <?php if (($N % $Cols) == 1 || $Cols == 1) echo '<tr valign=top align=center>'; ?>
-                <div class="grid__item">
-                    <a href='<?php echo $href; ?>'>
-                        <?php echo $image; ?>
-                        <div class="grid__title"><?php echo $name; ?></div>
-                        <div class="grid__price">
-                            <?php echo $price_str; ?>
-                        </div>
+            <div class="grid__item">
+                <a href='<?php echo $href; ?>'>
+                    <?php echo $image; ?>
+                    <div class="grid__title"><?php echo $name; ?></div>
+                    <div class="grid__price">
+                        <?php echo $price_str; ?>
+                    </div>
 
-                        <div class="grid__button">
-                            <?php if ($in_stock && $quantity) { ?>
-                                <a class="btn btn__blue" href="<?php echo $href1; ?>" rel='nofollow'>Buy now</a>
-                            <?php } else { ?>
-                                <b class="btn btn__blue">OUT</b>
-                            <?php } ?>
-                        </div>
+                    <div class="grid__button">
+                        <?php if ($in_stock && $quantity) { ?>
+                            <a class="btn btn__blue" href="<?php echo $href1; ?>" rel='nofollow'>Buy now</a>
+                        <?php } else { ?>
+                            <b class="btn btn__blue">OUT</b>
+                        <?php } ?>
+                    </div>
 
-                        <?php echo $description; ?>
-                    </a>
+                    <?php echo $description; ?>
+                </a>
                 </div>
 
             <?php
@@ -352,72 +435,4 @@ void();
     <?php } ?>
 </div>
 
-<div class="sidebar sidebar--small">
-    <div class="box">
-        <div class="box__item">
-            <div class="boxList">
-                <h3 class="boxList__title">All Category</h3>
-                <ul class="boxList__list">
-                    <?php
-                    if (!$Config['left_menu_style']) {
 
-                        include("$ROOT_PATH/modules/menu_categories.php");
-
-                    } else {
-
-                        echo '<div class="tree_usual">';
-
-                        $TreeInfo = $CategItems[$CatID]['tree_info'];
-
-                        foreach ($CategItems as $id => $item) {
-
-                            if ($id < 2) continue;
-                            $lev = $item['level'];
-
-                            if ($lev != 1 && !strpos($TreeInfo, '_' . str_pad($item['parID'], 6, '0', STR_PAD_LEFT) . '_'))
-                                continue;
-                            list($name_, $comm_) = call('to_html', $item['name'], $item['comment']);
-                            if ($Config['menu_prd_count']) $name_ .= "<nobr>&nbsp;($item[n_prod])</nobr>";
-
-
-                            $tmp = ($CatID == $id) ? 'class="active"' : '';
-                            $name_ = "<a href='$SITE_ROOT/$item[href]' title='$comm_' $tmp>$name_</a>";
-
-                            echo "<div style='padding-left:", (($lev - 1) * 10), "'>$name_</div>";
-
-                        }
-                        echo '</div>';
-                    }
-                    ?>
-
-                    <li><a href='<?php echo $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
-                    <li><a href='<?php echo $SITE_ROOT ?>/prod_new.html'>New Products</a></li>
-                    <li><a href='<?php echo $SITE_ROOT ?>/prod_featured.html'>Featured Products</a></li>
-                    <li><a href='<?php echo $SITE_ROOT ?>/prod_bestseller.html'>Bestsellers</a></li>
-                    <li><a href='<?php echo $SITE_ROOT ?>/search_prod.html' rel='nofollow'>extended search</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="box__item">
-            <div class="boxBanner">
-                <a href="/">
-                    <img src="<?php echo $SITE_ROOT ?>/img/bunner/image-1.jpg" alt="">
-                </a>
-            </div>
-        </div>
-
-        <div class="box__item">
-            <div class="boxUps">
-                <div class="boxUps__images">
-                    <img src="<?php echo $SITE_ROOT ?>/img/ups.png" alt="">
-                </div>
-
-                <div class="boxUps__content">
-                    <span>Free UPS Group Shipping</span>
-                    <a href="/">Read more</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

@@ -59,6 +59,62 @@
             }
         }
     }
+
+    &__list_best {
+        li {
+            position relative;
+            display block;
+            border-top: 1px solid #eeeeee;
+            box-sizing border-box;
+            core-justify();
+
+            &:before {
+                position absolute;
+                right: 25px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                sprite($arrow-right_v1);
+                content "";
+            }
+        }
+
+        .boxList__link {
+            display inline-block
+            vertical-align middle;
+            font-family $Roboto;
+            font-size 14px;
+            line-height 20px;
+            color #393635;
+            padding 15px 35px 15px 20px;
+            text-decoration none;
+            background #fff;
+            transition all 0.2s ease;
+            margin-left: -30px;
+            padding-left: 30px;
+            width 100%;
+            box-sizing border-box;
+            word-break: break-word;
+            text-align left;
+
+            &:hover {
+                background #f8f8f8;
+            }
+        }
+
+        .boxList__buy {
+            position relative;
+            display inline-block
+            vertical-align middle
+            width: 30px;
+
+            img {
+                padding-left: 5px;
+            }
+        }
+    }
+
+
 }
 
 /* boxBanner */

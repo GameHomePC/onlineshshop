@@ -323,8 +323,9 @@
         transition all 0.2s ease;
         user-select none;
         border-right: 1px solid #cccccc;
+        text-decoration none;
 
-        &:last-of-type {
+        &:last-child {
             border-right: none;
         }
     }
@@ -350,6 +351,7 @@
         vertical-align top;
         border: 1px solid #cccccc;
         border-radius: 4px;
+        margin: 0 10px;
         clearfix();
     }
 
@@ -478,5 +480,44 @@
         max-width: 170px;
         font-size 15px;
         font-family $Roboto;
+    }
+}
+
+/* decorLink */
+.decorLink {
+    core-justify();
+    margin-bottom: 22px;
+
+    li {
+        display inline-block
+        vertical-align top
+        width (100% / 4);
+        padding: 0 10px;
+        box-sizing border-box
+
+        &:last-of-type {
+            padding-right: 0;
+        }
+
+        &:first-of-type {
+            padding-left: 0;
+        }
+    }
+
+    a {
+        display block;
+        padding 10px;
+        color #fff;
+        text-decoration none;
+        font-family $Roboto;
+        font-size 15px;
+        background linear-gradient(to bottom,#50cdf7,#2fb9e6);
+        border-radius: 5px;
+        text-align center;
+        transition all 0.2s ease;
+
+        &:hover {
+            opacity 0.9;
+        }
     }
 }
