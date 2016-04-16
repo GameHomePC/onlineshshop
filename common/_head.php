@@ -104,50 +104,30 @@
 
             <div class="headerBox__item headerBox__list">
                 <ul class="listH">
-                    <li class="listH__item listH_best"><a href="#">Bestsellers</a></li>
-                    <li class="listH__item listH_spec"><a href="#">Specials</a></li>
+                    <li class="listH__item"><a href="#">News</a></li>
+                    <li class="listH__item"><a href="#">About Us</a></li>
+                    <li class="listH__item"><a href="#">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="headerBox__item headerBox__account">
-                <div class="headerBox__box">
-                    <div class="selectH">
-                        <?php if($CUSTOMER_ID): ?>
-                            <div class="selectH__minText">Hello, <a href="#">Alex</a></div>
-                        <?php else: ?>
-                            <div class="selectH__minText">Hello</div>
-                        <?php endif; ?>
+                <div class="headerBox__box verticatfix">
+                    <div class="headerLogin">
+                        <ul class="headerLogin__box headerLogin_join">
+                            <li><a href="#" onclick="scrollToBox('.footer'); return false;">Join our mailing list</a></li>
+                        </ul>
 
-                        <div class="selectH__item">
-                            <?php if($CUSTOMER_ID): ?>
-                                <span class="selectH__title">Your account</span>
-                            <?php else: ?>
-                                <span class="selectH__title">Login</span>
+                        <ul class="headerLogin__box">
+                            <?php if(!$NO_EXTERNAL): ?>
+                                <li><a href="<?php echo $SITE_ROOT; ?>/login_form.html">Login</a></li>
+                                <li><a href="<?php echo $SITE_ROOT; ?>/register_form.html">Registration</a></li>
                             <?php endif; ?>
 
-                            <div class="selectHSub selectHSub__log">
-                                <div class="selectHSub__box">
-                                    <form>
-                                        <?php if (!$NO_EXTERNAL): ?>
-                                            <fieldset class="fieldset">
-                                                <a href="<?php echo $SITE_ROOT; ?>/login_form.html" class="btn btn__green"><span>Sing in</span></a>
-                                            </fieldset>
-                                        <?php endif; ?>
-
-                                        <ul class="selectHSub__list">
-                                            <?php if(!$NO_EXTERNAL): ?>
-                                                <li><a href="<?php echo $SITE_ROOT; ?>/register_form.html">New customer? <span>Register here</span></a></li>
-                                            <?php endif; ?>
-
-                                            <?php if($CUSTOMER_ID): ?>
-                                                <li><a href="<?= $SECURE_URL_HEADER ?>/account.html">Your account</a></li>
-                                                <li><a href="<?php echo $SITE_ROOT; ?>/logout.html?toploginform_url=<?php echo to_url($REQUEST_URI); ?>">Logout</a></li>
-                                            <?php endif; ?>
-                                        </ul>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                            <?php if($CUSTOMER_ID): ?>
+                                <li><a href="<?= $SECURE_URL_HEADER ?>/account.html">Your account</a></li>
+                                <li><a href="<?php echo $SITE_ROOT; ?>/logout.html?toploginform_url=<?php echo to_url($REQUEST_URI); ?>">Logout</a></li>
+                            <?php endif; ?>
+                        </ul>
                     </div>
                 </div>
 

@@ -10,7 +10,21 @@ button {
 
 /* fieldset */
 .fieldset {
+    margin-top: 15px;
 
+    &:first-of-type { margin-top: 0; }
+
+    &__title {
+        display block;
+        font-family $Arial;
+        font-size 16px;
+        color #747474;
+        line-height 24px;
+    }
+
+    &__wrapSubmit {
+        margin-top: 24px;
+    }
 }
 
 /* btn */
@@ -118,7 +132,7 @@ button {
     display inline-block;
     vertical-align top
     height 37px;
-    border: 1px solid #dadada;
+    border: 2px solid #dadada;
     border-radius: 3px;
     font-family $Roboto;
     font-size 13px;
@@ -127,6 +141,12 @@ button {
     outline none;
     appearance: none;
     padding: 0 12px;
+    transition all 0.2s ease;
+
+    &:focus {
+        border-color #3da1da;
+        box-shadow 0 0 7px 1px rgba(61,161,218,1);
+    }
 }
 
 /* checkbox */
@@ -178,5 +198,72 @@ button {
         line-height 22px;
         padding-left: 10px;
         user-select none;
+    }
+}
+
+/* page form */
+.form {
+    padding 32px 0;
+
+    form {
+        margin 0 auto;
+        width 310px;
+    }
+
+    &__title {
+        font-family $Arial;
+        font-size 22px;
+        color #474747;
+        text-align center;
+        padding: 0 0 20px;
+    }
+
+    &__linkBox {
+        margin-top: 10px;
+
+        &:first-of-type { margin-top: 0; }
+
+        .big {
+            font-family $Arial;
+            font-size 16px;
+            line-height 24px;
+            color #3da1da;
+            text-decoration none;
+
+            &:hover {
+                text-decoration underline;
+            }
+        }
+
+        p {
+            font-family $Arial;
+            font-size 14px;
+            line-height 20px;
+            color #5a5a5a;
+
+            a {
+                color #3da1da;
+                text-decoration none;
+
+                &:hover {
+                    text-decoration underline;
+                }
+            }
+        }
+    }
+
+    .input-text {
+        width 100%;
+        height: 48px;
+    }
+
+    .btn {
+        height: 52px;
+        line-height: 52px;
+        font-size 16px;
+    }
+
+    .fieldset__title {
+        margin-bottom: 5px;
     }
 }

@@ -37,34 +37,6 @@
                     <li><a href="#">Shipping</a></li>
                 </ul>
             </div>
-
-            <div class="footer__item">
-                <div class="footer__title">Explore</div>
-
-                <ul class="footer__list">
-                    <li><a href="#">Search item</a></li>
-                    <li><a href="#">Find Form</a></li>
-                    <li><a href="#">Useful Links</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__item">
-                <div class="footer__title">Support</div>
-
-                <ul class="footer__list">
-                    <li><a href="#">Special Offers</a></li>
-                    <li><a href="#">Health Information</a></li>
-                    <li><a href="#">Secure Payments</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__item">
-                <div class="footer__title">Connect</div>
-
-                <ul class="footer__list">
-                    <li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                </ul>
-            </div>
         </div>
 
         <div class="footer__botton">
