@@ -252,3 +252,43 @@ function scrollToBox(elements) {
         scrollTop: $(elements).offset().top
     })
 }
+
+
+function sendMail(elementForm) {
+
+    elementForm.on('submit', function(e) {
+        var self = $(this);
+
+        self.addClass('spinner');
+
+        $.ajax({
+            method: 'POST',
+            url: 'send.php',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function() {
+                self.removeClass('spinner');
+            }
+        });
+
+        return false;
+
+    });
+
+}
+
+(function($j) {
+
+    $j(function() {
+
+        var footerForm = $j('#footerSend');
+
+        if(footerForm.length) {
+
+            sendMail(footerForm);
+
+        }
+
+    });
+
+})(jQuery);

@@ -3,13 +3,17 @@
     padding-top: 64px;
 
     &__top {
-        clearfix();
+        core-justify();
         padding-bottom: 74px;
     }
 
     &__item {
-        float left;
+        display inline-block;
+        vertical-align top;
         width: (100% / 6);
+
+        &_form { width: (100% / 4); }
+        &_soc { width: (100% / 8); }
     }
 
     &__title {
@@ -76,5 +80,30 @@
                 text-decoration underline;
             }
         }
+    }
+}
+
+/* footerSoc */
+.footerSoc {
+    li {
+        display block;
+        margin-bottom: 10px;
+
+        &:last-of-type {
+            margin-bottom 0;
+        }
+    }
+
+    a {
+        display block;
+        width: 54px;
+        height: 54px;
+        background #fff;
+        color #2db7e5;
+        border-radius 50%;
+        line-height 54px;
+        text-align center;
+        text-decoration none;
+        font-size 22px;
     }
 }

@@ -37,6 +37,30 @@
                     <li><a href="#">Shipping</a></li>
                 </ul>
             </div>
+
+            <div class="footer__item footer__item_form">
+                <div class="footer__title">JOIN OUR MAILING LINST</div>
+
+                <div class="formSend">
+                    <form id="footerSend">
+                        <fieldset class="fieldset">
+                            <input class="input-text" type="email" name="email" required />
+                        </fieldset>
+
+                        <fieldset class="fieldset fieldset__wrapSubmit">
+                            <button class="btn btn__green"><span>Join the list</span></button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer__item footer__item_soc">
+                <ul class="footerSoc">
+                    <li><a class="fa fa-facebook" href=""></a></li>
+                    <li><a class="fa fa-twitter" href=""></a></li>
+                    <li><a class="fa fa-google-plus" href=""></a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="footer__botton">
