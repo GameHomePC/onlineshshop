@@ -91,27 +91,93 @@ $htmlCart = '
     <?php
         if ($Error) report_error($Error);
         elseif ($SC_QUANTITY) echo "<div style='font weight:bold;text-align:center;font-size:14'>Your cart is empty</div>";
-        else echo $htmlCart;
+        else echo '<div class="cartTop">' . $Res . '</div>';
     ?>
 
-    <table class="cart__BoxButton" width=95%>
-        <tr>
-            <td width=0 nowrap class="button1">
-                <nobr><a class="btn btn__green" href='<?= $SITE_ROOT,'/',$CategItems[$continueCat]['href'] ?>' rel=nofollow>CONTINUE SHOPPING</a></nobr>
-            </td>
-            <td width=100%></td>
 
-            <?php if (!$SC_QUANTITY) : ?>
-                <td width=0 nowrap class=button2>
-                    <nobr><a class="btn btn__green" href='<?= $SECURE_URL_HEADER ?>/<?= $CUSTOMER_ID ? 'addresses.html' : 'choice.html' ?>' rel=nofollow
-                             onClick='if (sc_form.form_changed.value!="0") { sc_form.form_changed.value=2; sc_form.submit(); return false }'><span>Proceed to checkout</span></a></nobr>
-                </td>
-            <?php endif; ?>
+    <div class="cartMiddle">
+        <div class="cartMiddle__item button1">
+            <a class="btn btn__green"
+               href='<?php echo $SITE_ROOT,'/',$CategItems[$continueCat]['href'] ?>'
+               rel="nofollow">
+                <span>Continue Shopping</span>
+            </a>
+        </div>
+
+        <?php if ($SC_QUANTITY) : ?>
+            <div class="cartMiddle__item button2">
+                <a class="btn btn__green"
+                   href='<?php echo $SECURE_URL_HEADER ?>/<?php echo $CUSTOMER_ID ? 'addresses.html' : 'choice.html' ?>'
+                   rel="nofollow"
+                   onClick='if (sc_form.form_changed.value!="0") { sc_form.form_changed.value=2; sc_form.submit(); return false }'>
+                    <span>Proceed to checkout</span>
+                </a>
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <?php
+
+        $htmlCode = '
+            <table border="0" cellspacing="0" cellpadding="0" width="95%">
+        <tbody>
+        <tr>
+            <td>
+
+                <table border="0" cellspacing="0" cellpadding="0" style="margin-top:20">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                            <form action="discount.html" method="post" onsubmit="">
+                                <table border="0" cellspacing="0" cellpadding="0" class="border">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border="0" cellspacing="1" cellpadding="4">
+                                                <tbody>
+                                                <tr class="bgH">
+                                                    <td>&nbsp; <b>Get Discount</b>
+
+                                                        <div class="sc_text">(Enter valid discount coupon or gift
+                                                            voucher code)
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="bg">
+                                                    <td align="left">
+                                                        Code:
+                                                        <input type="text" name="discount_code" size="20" maxlength="50"
+                                                               value="">
+                                                        <input type="submit" class="button" value="Apply >>"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
         </tr>
+        </tbody>
     </table>
 
+        ';
+    ?>
+
+
     <?php if (!$Error && !$DISCOUNT_ID): ?>
-        <?php echo $Res_d; ?>
+        <div class="codeCart">
+            <div class="codeCart__wrap">
+                <?php echo $Res_d; ?>
+            </div>
+        </div>
     <?php endif; ?>
 
 

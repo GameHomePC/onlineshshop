@@ -82,7 +82,10 @@
                         echo "<img src='$Category[file_name]' width=$Category[w] height=$Category[h] alt='' align=left>";
                     }
                 ?>
-                <?php echo $Category['description']; ?>
+
+                <div class="description">
+                    <?php echo $Category['description']; ?>
+                </div>
             </td>
 
             <?php
