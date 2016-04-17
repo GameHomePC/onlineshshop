@@ -49,7 +49,7 @@ $htmlCart = '
 <tr class="bg">
   <td colspan="2" align="left">
 
-<form action="discount.html?from=1" method="post" onsubmit="return formSubmitOnce(this,checkFilled(this.discount_code,'Enter Code'))">
+<form action="discount.html?from=1" method="post" onsubmit="">
 <input type="hidden" name="SHOPXML_SESSION" value="2b95f840d0f8c6e517bac2f355e6feba">	&nbsp; Get Discount (enter coupon/voucher code)
 	<input type="text" name="discount_code" size="10" maxlength="50" value="">
 	<input type="submit" class="button" value="Apply >>" style="margin-bottom:-1;">
@@ -65,7 +65,7 @@ $htmlCart = '
 <br>
 
 
-<form action="addresses_process.html" style="margin:0" method="POST" name="update" onsubmit="return formSubmitOnce(this,checkInfo(this))" onreset="setTimeout('changeCountry1();changeCountry2();',10)">
+<form action="addresses_process.html" style="margin:0" method="POST" name="update" onsubmit="" onreset="">
 
 <table border="0" cellspacing="0" cellpadding="0" class="border" width="95%">
 <tbody><tr><td>
@@ -228,7 +228,6 @@ $htmlCart = '
 ?>
 
 
-<div class="cart">
 
 
     <?php
@@ -238,8 +237,8 @@ $htmlCart = '
 
     <?php
         if ($Error) report_error($Error);
-        elseif (!$SC_QUANTITY) echo "<div style='font weight:bold;text-align:center;font-size:14'>Your cart is empty</div>";
-        else echo '<div class="cartTop">' . $htmlCart . '</div>';
+        elseif ($SC_QUANTITY) echo "<div style='font weight:bold;text-align:center;font-size:14'>Your cart is empty</div>";
+        else echo $htmlCart;
     ?>
 
 
@@ -304,7 +303,6 @@ $htmlCart = '
 
 
 
-</div>
 
 <?php
     include_once("$ROOT_PATH/common/all_tail.php");

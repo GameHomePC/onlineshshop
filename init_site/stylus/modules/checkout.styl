@@ -1,0 +1,205 @@
+.checkout {
+    font-size 0;
+
+    input[type="submit"], input[type="reset"] {
+        display block;
+        outline none;
+        height 41px;
+        max-width 260px;
+        width: 100%;
+        font-family $Arial;
+        font-size 14px;
+        text-align center;
+        padding: 0;
+        box-sizing border-box;
+        transition all 0.2s ease;
+        text-decoration none;
+        border-radius 5px;
+        color #fff;
+        line-height 41px;
+        padding-bottom: 3px;
+        cursor pointer;
+
+        &:hover {
+            opacity 0.8;
+            text-decoration none;
+        }
+    }
+
+    input[type="submit"] {
+        background #5ca12c;
+    }
+
+    input[type="reset"] {
+        background linear-gradient(to bottom, #50cdf7, #2fb9e6);
+    }
+
+    & > .border {
+        .bgH {
+            font-family $Roboto;
+            font-size 14px;
+            line-height 32px;
+            letter-spacing(20, 14);
+            color: #b4bbc2;
+
+            td[align="right"] {
+                font-family $Arial;
+                font-size 16px;
+                line-height 22px;
+                font-weight bold;
+                color #1a1a1a;
+            }
+
+            b {
+                text-transform uppercase;
+            }
+        }
+
+        .bg {
+            vertical-align top;
+            font-family $Arial;
+            font-size 16px;
+            line-height 22px;
+            letter-spacing(25, 16);
+            color #1a1a1a;
+            text-align left;
+
+            td[align="right"] {
+                font-weight bold;
+            }
+
+            b {
+
+            }
+        }
+
+        input[type="text"] {
+            display block;
+            vertical-align top;
+            max-width: 260px;
+            width: 100%;
+            height 37px;
+            border: 2px solid #dadada;
+            border-radius: 3px;
+            font-family $Roboto;
+            font-size 13px;
+            color #acacac;
+            letter-spacing(25, 13);
+            outline none;
+            appearance: none;
+            padding: 0 12px;
+            transition all 0.2s ease;
+            margin: 20px 0;
+
+            &:focus {
+                border-color #3da1da;
+                box-shadow 0 0 7px 1px rgba(61,161,218,1);
+            }
+        }
+    }
+
+
+    form[name="update"] {
+        br {
+            display none;
+        }
+
+        .bgH {
+            font-family $Roboto;
+            font-size 18px;
+            font-weight bold;
+            letter-spacing(20, 14);
+            color: #1a1a1a;
+            text-align right;
+
+            b {
+                text-transform uppercase;
+            }
+        }
+
+        .bg {
+            font-family $Arial;
+            font-size 16px;
+            letter-spacing(25, 16);
+            color #1a1a1a;
+            text-align left;
+
+            td[align="right"] {
+                font-weight bold;
+            }
+
+            b {
+
+            }
+        }
+
+
+        td {
+            padding 10px;
+            vertical-align middle;
+        }
+
+        select {
+            display inline-block
+            vertical-align top
+            width 100%;
+            height 37px;
+            border: 1px solid #dadada;
+            background linear-gradient(to bottom, #ffffff, #e5e5e5);
+            border-radius: 3px;
+            font-family $Roboto;
+            font-size 13px;
+            color #acacac;
+            letter-spacing(25, 13);
+            outline none;
+            padding: 0 12px;
+            box-sizing border-box;
+        }
+
+        input[type="text"] {
+            display inline-block;
+            vertical-align top;
+            width 100%;
+            height 37px;
+            border: 2px solid #dadada;
+            border-radius: 3px;
+            font-family $Roboto;
+            font-size 13px;
+            color #acacac;
+            letter-spacing(25, 13);
+            outline none;
+            appearance: none;
+            padding: 0 12px;
+            transition all 0.2s ease;
+
+            &:focus {
+                border-color #3da1da;
+                box-shadow 0 0 7px 1px rgba(61,161,218,1);
+            }
+        }
+
+        textarea {
+            display inline-block;
+            width 100%;
+            vertical-align top
+            border: 2px solid #dadada;
+            border-radius: 3px;
+            font-family $Roboto;
+            font-size 13px;
+            color #acacac;
+            letter-spacing(25, 13);
+            outline none;
+            appearance: none;
+            padding: 0 12px;
+            transition all 0.2s ease;
+            box-sizing border-box;
+            resize none;
+            height 100px;
+
+            &:focus {
+                border-color #3da1da;
+                box-shadow 0 0 7px 1px rgba(61,161,218,1);
+            }
+        }
+    }
+}
