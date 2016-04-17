@@ -90,7 +90,7 @@ $htmlCart = '
 
         <?php
         if ($Error) report_error($Error);
-        elseif ($SC_QUANTITY) echo "<div style='font weight:bold;text-align:center;font-size:14'>Your cart is empty</div>";
+        elseif (!$SC_QUANTITY) echo "<div style='font weight:bold;text-align:center;font-size:14'>Your cart is empty</div>";
         else echo '<div class="cartTop">' . $Res . '</div>';
         ?>
 

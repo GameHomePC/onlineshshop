@@ -118,7 +118,7 @@
                         </ul>
 
                         <ul class="headerLogin__box">
-                            <?php if(!$NO_EXTERNAL): ?>
+                            <?php if(!$CUSTOMER_ID): ?>
                                 <li><a href="<?php echo $SITE_ROOT; ?>/login_form.html">Login</a></li>
                                 <li><a href="<?php echo $SITE_ROOT; ?>/register_form.html">Registration</a></li>
                             <?php endif; ?>
