@@ -73,65 +73,59 @@
 ?>
 
 <?php if ($Category['uplID'] || $Category['description']!='' || $Config['cat_show_spec'] || $Config['cat_show_feat']) { ?>
-    <table border=0 cellspacing=0 cellpadding=0 width=100%>
-        <tr valign=top>
-            <td style='text-align:justify' width=100%>
-                <?php
-                    if ($Category['uplID']) {
-                        if (!$Category['img_not_loaded']) $Category['file_name']="$SITE_ROOT/$Category[file_name]";
-                        echo "<img src='$Category[file_name]' width=$Category[w] height=$Category[h] alt='' align=left>";
-                    }
-                ?>
+    <div class="category">
+        <?php
+            if ($Category['uplID']) {
+                if (!$Category['img_not_loaded']) $Category['file_name']="$SITE_ROOT/$Category[file_name]";
+                echo "<img src='$Category[file_name]' width=$Category[w] height=$Category[h] alt='' align=left>";
+            }
+        ?>
 
-                <div class="description">
-                    <?php echo $Category['description']; ?>
-                </div>
-            </td>
+        <div class="category__description">
+            <?php echo $Category['description']; ?>
+        </div>
 
-            <?php
-                if ($Config['cat_show_feat']) {
-                    echo '<td width=0 style="padding-left:5px">';
+        <?php
+            if ($Config['cat_show_feat']) {
+                echo '<td width=0 style="padding-left:5px">';
 
-                    $ModuleData=array(
-                        'page' => 0,
-                        'pages_url' => '',
-                        'head_title' => 'Featured',
-                        'catID' => $CatID,
-                        'condition' => "((p.price_type=2 and spec_time1<=$TIME and (!spec_time2 or spec_time2>=$TIME)) or pn.price_type=2)",
-                        'cols' => 1,
-                        'rows' => 1,
-                        'rand' => 1
-                    );
-                    include('modules/products_search.php');
+                $ModuleData=array(
+                    'page' => 0,
+                    'pages_url' => '',
+                    'head_title' => 'Featured',
+                    'catID' => $CatID,
+                    'condition' => "((p.price_type=2 and spec_time1<=$TIME and (!spec_time2 or spec_time2>=$TIME)) or pn.price_type=2)",
+                    'cols' => 1,
+                    'rows' => 1,
+                    'rand' => 1
+                );
+                include('modules/products_search.php');
 
-                    echo '</td>';
-                }
-            ?>
+                echo '</td>';
+            }
+        ?>
 
 
-            <?php
-                if ($Config['cat_show_spec']) {
-                    echo '<td width=0 style="padding-left:5px">';
+        <?php
+            if ($Config['cat_show_spec']) {
+                echo '<td width=0 style="padding-left:5px">';
 
-                    $ModuleData=array(
-                        'page' => 0,
-                        'pages_url' => '',
-                        'head_title' => 'Specials',
-                        'catID' => $CatID,
-                        'condition' => "((p.price_type=1 and spec_time1<=$TIME and (!spec_time2 or spec_time2>=$TIME)) or pn.price_type=1)",
-                        'cols' => 1,
-                        'rows' => 1,
-                        'rand' => 1
-                    );
-                    include('modules/products_search.php');
+                $ModuleData=array(
+                    'page' => 0,
+                    'pages_url' => '',
+                    'head_title' => 'Specials',
+                    'catID' => $CatID,
+                    'condition' => "((p.price_type=1 and spec_time1<=$TIME and (!spec_time2 or spec_time2>=$TIME)) or pn.price_type=1)",
+                    'cols' => 1,
+                    'rows' => 1,
+                    'rand' => 1
+                );
+                include('modules/products_search.php');
 
-                    echo '</td>';
-                }
-            ?>
-
-        </tr>
-    </table>
-    <hr width=100% noshade size=1 color=#E5E3E3 align=left>
+                echo '</td>';
+            }
+        ?>
+    </div>
 <?php } ?>
 
 

@@ -1,13 +1,85 @@
-.description {
-    font-family $Roboto;
-    font-size 16px;
-    line-height 18px;
+.product {
+    clearfix();
+    margin-bottom: 20px;
 
-    p {
-        margin-bottom: 10px;
+    &__images {
+        float left;
+        width: 35%;
+    }
 
-        &:last-of-type {
-            margin-bottom: 0;
+    &__content {
+        float left;
+        width: 65%;
+    }
+
+    &__imagesLink {
+        a {
+            display block;
+            text-align center;
+        }
+
+        img {
+            max-width 100%;
+        }
+    }
+
+    &__price {
+        text-align center;
+        padding: 15px 0;
+        display: block;
+        font-family: $NHaasGroteskDSStd-75Bd;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 24px;
+        color: #252525;
+
+        .old {
+            font-size: 15px;
+            text-decoration: line-through;
+            color: #9f9f9f;
+            margin-right: 4px;
+        }
+
+        .new {
+            color: #c94848;
+        }
+    }
+
+    &__btn {
+        text-align center;
+    }
+
+    &__description {
+        font-family $Arial;
+        font-size 14px;
+        line-height 20px;
+        letter-spacing(20, 14);
+        color #575757;
+
+        & > font {
+            display none;
+        }
+
+        table {
+            width: 100%;
+            margin: 15px 0;
+
+            tr {
+
+            }
+
+            td, th {
+                border: 1px solid #e1e1e1;
+                padding: 4px 6px;
+                font-family $Arial;
+                font-size 14px;
+                letter-spacing(20, 14);
+                color #575757!important;
+
+                font {
+                    color #575757!important;
+                }
+            }
         }
     }
 }
