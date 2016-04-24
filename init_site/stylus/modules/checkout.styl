@@ -1,6 +1,12 @@
 .checkout {
     font-size 0;
 
+    table {
+        +breakpoint($media-640, 'max-width') {
+            width: 100%;
+        }
+    }
+
     input[type="submit"], input[type="reset"] {
         display block;
         outline none;
