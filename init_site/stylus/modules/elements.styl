@@ -496,6 +496,10 @@
     box-sizing border-box;
     margin-bottom: 28px;
 
+    +breakpoint($media-1200, 'max-width') {
+        padding: 10px 15px;
+    }
+
     form {
         font-size 0;
         core-justify();
@@ -514,6 +518,21 @@
         margin-right: 32px;
         width 20%;
 
+        +breakpoint($media-1024, 'max-width') {
+            width 100%;
+            padding: 10px 0;
+            margin-right 0;
+
+            &:last-of-type {
+                padding-bottom: 0;
+            }
+
+            &:first-of-type {
+                padding-top: 0;
+            }
+
+        }
+
         &:last-of-type {
             margin-right: 0;
         }
@@ -529,12 +548,38 @@
         line-height 37px;
         color #dadada
         padding: 0 5px;
+
+        +breakpoint($media-1120, 'max-width') {
+            display none
+        }
     }
 
     .btn {
         max-width: 170px;
         font-size 15px;
         font-family $Roboto;
+
+        +breakpoint($media-640, 'max-width') {
+            max-width: 100%;
+        }
+    }
+
+    .input-text {
+        +breakpoint($media-1120, 'max-width') {
+            display block;
+            width: 100%;
+            margin-bottom: 10px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .select {
+        +breakpoint($media-1024, 'max-width') {
+            width 100%
+        }
     }
 }
 
