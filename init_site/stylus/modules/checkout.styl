@@ -42,12 +42,22 @@
             letter-spacing(20, 14);
             color: #b4bbc2;
 
+            +breakpoint($media-480, 'max-width') {
+                font-size 12px;
+                letter-spacing(20, 12);
+            }
+
             td[align="right"] {
                 font-family $Arial;
                 font-size 16px;
                 line-height 22px;
                 font-weight bold;
                 color #1a1a1a;
+
+                +breakpoint($media-480, 'max-width') {
+                    font-size 12px;
+                    letter-spacing(20, 12);
+                }
             }
 
             b {
@@ -63,6 +73,11 @@
             letter-spacing(25, 16);
             color #1a1a1a;
             text-align left;
+
+            +breakpoint($media-480, 'max-width') {
+                font-size 12px;
+                letter-spacing(20, 12);
+            }
 
             td[align="right"] {
                 font-weight bold;
@@ -112,6 +127,11 @@
             color: #1a1a1a;
             text-align right;
 
+            +breakpoint($media-480, 'max-width') {
+                font-size 14px;
+                letter-spacing(20, 14);
+            }
+
             b {
                 text-transform uppercase;
             }
@@ -123,6 +143,11 @@
             letter-spacing(25, 16);
             color #1a1a1a;
             text-align left;
+
+            +breakpoint($media-480, 'max-width') {
+                font-size 14px;
+                letter-spacing(20, 14);
+            }
 
             td[align="right"] {
                 font-weight bold;
@@ -137,6 +162,10 @@
         td {
             padding 10px;
             vertical-align middle;
+
+            +breakpoint($media-480, 'max-width') {
+                padding 5px;
+            }
         }
 
         select {
@@ -254,6 +283,10 @@
                 line-height 22px;
                 font-weight bold;
                 color #1a1a1a;
+
+                +breakpoint($media-480, 'max-width') {
+                    font-size 14px;
+                }
             }
 
             b {
@@ -269,6 +302,11 @@
             letter-spacing(25, 16);
             color #1a1a1a;
             text-align left;
+
+            +breakpoint($media-480, 'max-width') {
+                font-size 14px;
+                letter-spacing(25, 14);
+            }
 
             td[align="right"] {
                 font-weight bold;
@@ -314,8 +352,13 @@
             font-family $Roboto;
             font-size 18px;
             font-weight bold;
-            letter-spacing(20, 14);
+            letter-spacing(20, 18);
             color: #1a1a1a;
+
+            +breakpoint($media-480, 'max-width') {
+                font-size 14px;
+                letter-spacing(20, 14);
+            }
 
             b {
                 text-transform uppercase;
@@ -328,6 +371,11 @@
             letter-spacing(25, 16);
             color #1a1a1a;
             text-align left;
+
+            +breakpoint($media-480, 'max-width') {
+                font-size 12px;
+                letter-spacing(20, 14);
+            }
 
             td[align="right"] {
                 font-weight bold;
