@@ -90,8 +90,8 @@ $htmlCart = '
 
         <?php
         if ($Error) report_error($Error);
-        elseif (!$SC_QUANTITY) echo "<div style='font weight:bold;text-align:center;font-size:14'>Your cart is empty</div>";
-        else echo '<div class="cartTop">' . $Res . '</div>';
+        elseif ($SC_QUANTITY) echo "<div style='font weight:bold;text-align:center;font-size:14'>Your cart is empty</div>";
+        else echo '<div class="cartTop">' . $htmlCart . '</div>';
         ?>
 
 
@@ -104,7 +104,7 @@ $htmlCart = '
                 </a>
             </div>
 
-            <?php if ($SC_QUANTITY) : ?>
+            <?php if (!$SC_QUANTITY) : ?>
                 <div class="cartMiddle__item button2">
                     <a class="btn btn__green"
                        href='<?php echo $SECURE_URL_HEADER ?>/<?php echo $CUSTOMER_ID ? 'addresses.html' : 'choice.html' ?>'
@@ -172,13 +172,13 @@ $htmlCart = '
         ?>
 
 
-        <?php if (!$Error && !$DISCOUNT_ID): ?>
+<!--        --><?php //if (!$Error && !$DISCOUNT_ID): ?>
             <div class="codeCart">
                 <div class="codeCart__wrap">
-                    <?php echo $Res_d; ?>
+                    <?php echo $htmlCode; ?>
                 </div>
             </div>
-        <?php endif; ?>
+<!--        --><?php //endif; ?>
 
 
     </div>
