@@ -5,11 +5,20 @@
     &__images {
         float left;
         width: 35%;
+
+        +breakpoint($media-768, 'max-width') {
+            width 100%
+            padding-bottom 20px
+        }
     }
 
     &__content {
         float left;
         width: 65%;
+
+        +breakpoint($media-768, 'max-width') {
+            width 100%
+        }
     }
 
     &__imagesLink {

@@ -6,7 +6,8 @@
 .headerBox {
     background: #ffffff;
     border-radius: 5px;
-    clearfix();
+    font-size 0
+    core-justify();
 
     &__logo {
         a {
@@ -15,46 +16,110 @@
     }
 
     &__item {
-        float left;
+        display inline-block
+        vertical-align top
         height 65px;
         box-sizing: border-box;
-
     }
 
     &__status {
         padding: 18px 21px 18px 19px;
         border-right: 1px solid #e2e2e2;
+
+        +breakpoint($media-1024, 'max-width') {
+            display block
+            border-right: none;
+            border-bottom: 1px solid #e2e2e2;
+        }
     }
 
     &__select {
-        padding: 16px 38px;
+        position relative
+        padding: 16px 10px;
     }
 
     &__search {
-        padding-left: 41px;
-        padding-right: 18px;
+        width 100%;
+        margin-left: -90px;
+        padding-left: 90px;
+        box-sizing border-box;
+
+        +breakpoint($media-1024, 'max-width') {
+            width auto;
+        }
     }
 
     &__list {
-
+        +breakpoint($media-480, 'max-width') {
+            width 100%;
+            border-bottom 1px solid #e2e2e2;
+        }
     }
 
     &__account {
-        float right;
+
     }
 
     &__box {
         verticatfix();
         box-sizing border-box;
     }
+
+    &__top {
+        display inline-block
+        vertical-align top
+        box-sizing border-box
+
+        +breakpoint($media-1024, 'max-width') {
+            width 100%
+            text-align center
+        }
+    }
+
+    &__middle {
+        display inline-block
+        vertical-align top
+        box-sizing border-box
+
+        +breakpoint($media-1024, 'max-width') {
+            width 50%
+            text-align center
+            border-right: 1px solid #e2e2e2;
+        }
+
+        +breakpoint($media-768, 'max-width') {
+            width 100%
+            border-right: none;
+            border-bottom: 1px solid #e2e2e2;
+        }
+    }
+
+    &__bottom {
+        display inline-block
+        vertical-align top
+        font-size 0;
+        box-sizing border-box
+
+        +breakpoint($media-1024, 'max-width') {
+            width 50%
+            text-align center
+        }
+
+        +breakpoint($media-768, 'max-width') {
+            width 100%
+        }
+    }
 }
 
 
 /* statusH */
 .statusH {
+    font-size 0
+
     &__circle {
         position relative;
-        float: left;
+        display inline-block
+        vertical-align top
         border-radius 50%;
         background #2db7e5;
         width 29px;
@@ -81,7 +146,8 @@
     }
 
     &__text {
-        float: left;
+        display inline-block
+        vertical-align top
         line-height 18px;
         padding-left: 10px;
         padding-top: 7px;
@@ -101,7 +167,8 @@
 .searchH {
     &__box {
         padding 10px 0;
-        width: 270px;
+        max-width: 270px;
+        width: 100%;
         clearfix();
     }
 
@@ -138,12 +205,22 @@
 /* listH */
 .listH {
     verticatfix();
+    padding-right: 30px;
+
+    +breakpoint($media-320, 'max-width') {
+        padding-right: 0;
+        display block
+    }
 
     &__item {
         display inline-block;
         vertical-align middle;
         border-right: 1px solid #e6e6e6;
         padding: 0 10px;
+
+        +breakpoint($media-1120, 'max-width') {
+            padding: 0 5px;
+        }
 
         &:last-of-type {
             border-right: none;
@@ -156,6 +233,10 @@
             line-height 16px;
             color #616161;
             letter-spacing(50, 14);
+
+            +breakpoint($media-1120, 'max-width') {
+                font-size 11px;
+            }
 
             &:hover {
                 text-decoration none;
@@ -178,6 +259,10 @@
 
     .headerBox__bag {
         padding 10px 25px 10px 0;
+
+        +breakpoint($media-1024, 'max-width') {
+            padding 10px 0 10px 0;
+        }
     }
 }
 
@@ -226,6 +311,10 @@
     vertical-align middle;
     padding-right: 6px;
 
+    +breakpoint($media-1120, 'max-width') {
+        padding-right: 3px;
+    }
+
     &__box {
         display block;
         margin-bottom: 4px;
@@ -257,6 +346,10 @@
             line-height 16px;
             letter-spacing(50, 14);
             color #616161;
+
+            +breakpoint($media-1120, 'max-width') {
+                font-size 11px;
+            }
 
             &:hover {
                 text-decoration none;

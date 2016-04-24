@@ -161,6 +161,10 @@
 .breadCrumbs {
     padding: 20px 0;
 
+    +breakpoint($media-480, 'max-width') {
+        padding: 10px 0;
+    }
+
     &__list {
         clearfix();
         padding: 0 3px;
@@ -175,7 +179,13 @@
             margin-right: 38px;
             letter-spacing(25, 13);
 
+            +breakpoint($media-480, 'max-width') {
+                font-size 11px
+            }
+
             &:last-of-type {
+                margin-right 0
+
                 &:before {
                     display none;
                 }
@@ -207,6 +217,10 @@
 .grid {
     clearfix();
 
+    +breakpoint($media-1024, 'max-width') {
+        core-justify()
+    }
+
     &__item {
         position relative;
         overflow hidden;
@@ -231,6 +245,47 @@
 
         &:nth-of-type(3n + 4) {
             clear both;
+        }
+
+        +breakpoint($media-1024, 'max-width') {
+            float none
+            display inline-block
+            vertical-align top
+            width 48%;
+            border-bottom 1px solid #e2e2e2;
+
+            &:nth-of-type(3n + 4) {
+                clear none;
+            }
+
+            &:nth-of-type(2n + 3) {
+                clear both;
+            }
+
+            &:nth-of-type(2n + 2) {
+                margin-right: 0;
+            }
+        }
+
+        +breakpoint($media-480, 'max-width') {
+            float none
+            display inline-block
+            vertical-align top
+            width 100%;
+            border-bottom 1px solid #e2e2e2;
+            margin-right: 0;
+
+            &:nth-of-type(3n + 4) {
+                clear none;
+            }
+
+            &:nth-of-type(2n + 3) {
+                clear both;
+            }
+
+            &:nth-of-type(2n + 2) {
+                margin-right: 0;
+            }
         }
 
         & > a {
@@ -501,6 +556,33 @@
 
         &:first-of-type {
             padding-left: 0;
+        }
+
+        +breakpoint($media-640, 'max-width') {
+            width (100% / 2);
+            margin-bottom: 20px;
+
+            &:last-of-type {
+                padding-right: 10px;
+            }
+
+            &:first-of-type {
+                padding-left: 10px;
+            }
+        }
+
+        +breakpoint($media-480, 'max-width') {
+            width 100%;
+            margin-bottom: 10px;
+            padding: 0;
+
+            &:last-of-type {
+                padding-right: 0;
+            }
+
+            &:first-of-type {
+                padding-left: 0;
+            }
         }
     }
 

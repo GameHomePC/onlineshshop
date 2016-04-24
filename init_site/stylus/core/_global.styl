@@ -36,16 +36,30 @@ a {
 
     &--sidebar {
         float left;
+
+        +breakpoint($media-768, 'max-width') {
+            float none;
+        }
     }
 
     &--right {
         margin-right: -270px;
         padding-right: 297px;
+
+        +breakpoint($media-768, 'max-width') {
+            margin-right: 0;
+            padding-right: 0;
+        }
     }
 
     &--left {
         margin-left: -270px;
         padding-left: 297px;
+
+        +breakpoint($media-768, 'max-width') {
+            margin-left: 0;
+            padding-left: 0;
+        }
     }
 }
 
@@ -55,11 +69,16 @@ a {
     &--small {
         float left;
         width: 270px;
+
+        +breakpoint($media-768, 'max-width') {
+            float none
+            width auto
+        }
     }
 
 }
 
-footer-item(397px, '.window', '.footer');
+/*footer-item(397px, '.window', '.footer');*/
 
 .verticatfix {
     verticatfix();

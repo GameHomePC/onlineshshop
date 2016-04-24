@@ -16,14 +16,16 @@ letter-spacing($ps, $size) {
 
 /* breakpoints
 320 px, 480 px, 600 px, 768 px, 1024 px, 1280 px и более — PC.
-@include breakpointmedia(768) { font-size: 36px; } demo
+@include breakpoint(768) { font-size: 36px; } demo
 */
 
-//breakpointmedia( $value, $operator: 'min-width', $query: 'screen') {
-//    @media #{$query} and (#{$operator}: #{$value/16}em) {
-//        @content;
-//    }
-//}
+breakpoint( $value, $operator = 'min-width', $query = 'screen') {
+    $if = $query + ' and (' + $operator + ':' + ($value/16) + 'em)';
+
+    @media $if {
+        {block}
+    }
+}
 
 /* clearfix */
 clearfix() {
