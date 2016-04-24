@@ -112,9 +112,21 @@
             transition all 0.2s ease;
             margin: 20px 0;
 
+            +breakpoint($media-640, 'max-width') {
+                width: 100%;
+                max-width: 100%;
+            }
+
             &:focus {
                 border-color #3da1da;
                 box-shadow 0 0 7px 1px rgba(61,161,218,1);
+            }
+        }
+
+        input[type="submit"] {
+            +breakpoint($media-640, 'max-width') {
+                width: 100%;
+                max-width: 100%;
             }
         }
     }
@@ -170,7 +182,7 @@
             vertical-align middle;
 
             +breakpoint($media-480, 'max-width') {
-                padding 5px;
+                padding 5px 2px;
             }
         }
 
