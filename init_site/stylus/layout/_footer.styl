@@ -98,6 +98,10 @@
             line-height 31px;
             letter-spacing(25, 15);
             color rgba(255,255,255,0.4);
+
+            +breakpoint($media-480, 'max-width') {
+                font-size 12px;
+            }
         }
 
         a {
@@ -114,6 +118,11 @@
 
             &:hover {
                 text-decoration underline;
+            }
+
+            +breakpoint($media-480, 'max-width') {
+                margin-right: 0;
+                font-size 12px;
             }
         }
     }
