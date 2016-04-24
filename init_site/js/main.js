@@ -189,6 +189,43 @@ function topForgotPassword() {
         }
 
 
+        $j(window).on('load', function() {
+
+            var header = $j('.header'),
+                headerFix = $j('#headerFix'),
+                headerHeight = header.outerHeight(true),
+                headerFixHeight = headerFix.parent().outerHeight(true),
+                headerPositionTop = header.offset().top,
+                headerFixPosition = headerFix.offset().top,
+                headerFixPositionBottom = headerFixPosition + headerFixHeight,
+                headerPositionBottom = headerPositionTop + headerHeight;
+
+            function scrollInit() {
+                var self = $j(this),
+                    selfScrollTop = self.scrollTop();
+
+                headerFix.parent().css({
+                    height: headerFix.height()
+                });
+
+                if(selfScrollTop >= headerFixPosition) {
+                    headerFix.addClass('fixed');
+
+                    if(selfScrollTop >= headerPositionBottom - headerFixHeight) {
+                        headerFix.addClass('shadow');
+                    } else {
+                        headerFix.removeClass('shadow');
+                    }
+
+                } else {
+                    headerFix.removeClass('fixed');
+                }
+            }
+
+            $j(window).on('scroll', scrollInit).trigger('scroll');
+            $j(window).on('resize', scrollInit).trigger('resize');
+
+        });
     });
 
 })(jQuery);
