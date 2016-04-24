@@ -85,9 +85,9 @@ $htmlChange = '
 if ($Error) report_error($Error);
 else echo '<div class="form">', $htmlChange, '</div>',
 '<div class="order">
-    <div class="order__title">Your orders:</div>'
-    . $Res_ord .
-'</div>';
+    <div class="order__title">Your orders:</div>
+    <div class="order__table">'. $Res_ord . '</div>
+</div>';
 ?>
 
 <?php
