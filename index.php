@@ -1,28 +1,31 @@
-<?
-
-
+<?php
 //ini_set('display_errors', 1);
 // ====================================\
 @include_once('_dir.php');
 // ====================================/
 
-$IsHomePage=1;
+$IsHomePage = 1;
 include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
 
-<?
-if ($tmp=$FIRST_PAGE_PRODS_INIT[$Config['first_page_prods']]) {
-//=================================================================\
-    ?>
+<?php
+    if ($tmp = $FIRST_PAGE_PRODS_INIT[$Config['first_page_prods']]) {
+?>
 
 
-<?
-// ------------------------------------\
-    list($page)=$args;
-    call('intval',array(&$page));
+<ul class="decorLink">
+    <li><a href='<?php echo $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
+    <li><a href='<?php echo $SITE_ROOT ?>/prod_new.html'>New Products</a></li>
+    <li><a href='<?php echo $SITE_ROOT ?>/prod_featured.html'>Featured Products</a></li>
+    <li><a href='<?php echo $SITE_ROOT ?>/prod_bestseller.html'>Bestsellers</a></li>
+</ul>
 
-    $ModuleData=array(
+<?php
+    list($page) = $args;
+    call('intval', array(&$page));
+
+    $ModuleData = array(
         'page' => $page,
         'pages_url' => "$SITE_ROOT/index_<page>.html",
         'head_title' => $tmp['title'],
@@ -33,15 +36,9 @@ if ($tmp=$FIRST_PAGE_PRODS_INIT[$Config['first_page_prods']]) {
     );
 
     include('modules/products_search.php');
-//-------------------------------------/
-    ?>
-<?
-//=================================================================/
 }
 ?>
 
-
-
-<?
+<?php
 include_once("$ROOT_PATH/common/all_tail.php");
 ?>

@@ -190,13 +190,6 @@ void();
 
     ?>
 
-    <ul class="decorLink">
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_new.html'>New Products</a></li>
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_featured.html'>Featured Products</a></li>
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_bestseller.html'>Bestsellers</a></li>
-    </ul>
-
     <?php if($cat_sel): ?>
         <div class="filter">
         <form action='search_prod.html' style='margin:0'>

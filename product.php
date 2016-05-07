@@ -220,6 +220,8 @@ if ($image) {
     </div>
 </div>
 
+<div class="product__relative">Related Products</div>
+
 <?php
     if ($Config['show_related_prds']) {
         $ModuleData = array(
