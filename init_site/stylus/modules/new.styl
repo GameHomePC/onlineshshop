@@ -119,3 +119,43 @@
     }
 
 }
+
+.newsLong {
+    &__title {
+        font-family $TimesNewRoman
+        font-size 36px;
+        line-height 27px
+        color #000;
+        margin-bottom 20px
+    }
+
+    &__date {
+        font-family $Roboto
+        font-size 13px;
+        line-height 27px
+        color #9a9a9a;
+        letter-spacing(13, 10);
+        margin-bottom 20px
+    }
+
+    &__content {
+        font-family $Arial
+        font-size 17px;
+        line-height 27px
+        color #2d2d2d;
+        margin-bottom 5px
+    }
+
+    &__source {
+        a {
+            font-family $Arial
+            font-size 17px;
+            line-height 18px
+            color #2d2d2d;
+
+            &:hover {
+                text-decoration none;
+            }
+        }
+    }
+}
