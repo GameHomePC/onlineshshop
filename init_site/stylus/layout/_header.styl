@@ -48,7 +48,7 @@
         +breakpoint($media-1024, 'max-width') {
             display block
             border-right: none;
-            border-bottom: 1px solid #e2e2e2;
+            border-bottom 1px solid #e2e2e2;
         }
     }
 
@@ -58,13 +58,8 @@
     }
 
     &__search {
-        width 100%;
-        margin-left: -90px;
-        padding-left: 90px;
-        box-sizing border-box;
-
         +breakpoint($media-1024, 'max-width') {
-            width auto;
+            width 100%;
         }
     }
 
@@ -76,7 +71,11 @@
     }
 
     &__account {
+        float right
 
+        +breakpoint($media-1024, 'max-width') {
+            float none
+        }
     }
 
     &__box {
@@ -85,6 +84,7 @@
     }
 
     &__top {
+        position relative
         display inline-block
         vertical-align top
         box-sizing border-box
@@ -99,11 +99,15 @@
         display inline-block
         vertical-align top
         box-sizing border-box
+        width 100%;
+        padding-left: 225px;
+        margin-left: -205px;
 
         +breakpoint($media-1024, 'max-width') {
-            width 50%
             text-align center
             border-right: 1px solid #e2e2e2;
+            margin-left: 0;
+            padding 0 20px
         }
 
         +breakpoint($media-768, 'max-width') {
@@ -118,14 +122,24 @@
         vertical-align top
         font-size 0;
         box-sizing border-box
+        width: 60%;
+        clearfix();
 
         +breakpoint($media-1024, 'max-width') {
-            width 50%
+            width 100%
             text-align center
         }
+    }
 
-        +breakpoint($media-768, 'max-width') {
-            width 100%
+    &__small {
+        display inline-block
+        vertical-align top
+        font-size 0
+        box-sizing border-box
+        width: 40%;
+
+        +breakpoint($media-1024, 'max-width') {
+            width: 100%;
         }
     }
 }
@@ -189,6 +203,10 @@
         max-width: 270px;
         width: 100%;
         clearfix();
+
+        +breakpoint($media-1024, 'max-width') {
+            max-width: 100%;
+        }
     }
 
     &__input {
@@ -252,13 +270,14 @@
             line-height 16px;
             color #616161;
             letter-spacing(50, 14);
+            text-decoration none;
 
             +breakpoint($media-1120, 'max-width') {
                 font-size 11px;
             }
 
             &:hover {
-                text-decoration none;
+                text-decoration underline;
             }
         }
     }
@@ -365,13 +384,14 @@
             line-height 16px;
             letter-spacing(50, 14);
             color #616161;
+            text-decoration none;
 
             +breakpoint($media-1120, 'max-width') {
                 font-size 11px;
             }
 
             &:hover {
-                text-decoration none;
+                text-decoration underline;
             }
         }
     }

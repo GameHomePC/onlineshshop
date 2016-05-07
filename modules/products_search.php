@@ -311,9 +311,9 @@ void();
 
                     <div class="grid__button">
                         <?php if ($in_stock && $quantity) { ?>
-                            <a class="btn btn__blue" href="<?php echo $href1; ?>" rel='nofollow'>Buy now</a>
+                            <a class="btn btn__green" href="<?php echo $href1; ?>" rel='nofollow'><span>Buy now</span></a>
                         <?php } else { ?>
-                            <b class="btn btn__blue">OUT</b>
+                            <b class="btn btn__green"><span>OUT</span></b>
                         <?php } ?>
                     </div>
 

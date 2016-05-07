@@ -13,29 +13,30 @@
                 <div class="footer__title">Company</div>
 
                 <ul class="footer__list">
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="<?= $SITE_ROOT ?>/">About us</a></li>
+                    <li><a href="<?= $SITE_ROOT ?>/news.html">News</a></li>
+                    <li><a href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="footer__item">
-                <div class="footer__title">Sign up</div>
+                <div class="footer__title">Catalog</div>
 
                 <ul class="footer__list">
-                    <li><a href="#">Cart</a></li>
-                    <li><a href="#">Your Orders</a></li>
-                    <li><a href="#">Registry</a></li>
+                    <li><a href="#">Specials</a></li>
+                    <li><a href="#">New Products</a></li>
+                    <li><a href="#">Featured Products</a></li>
+                    <li><a href="#">Bestsellers</a></li>
                 </ul>
             </div>
 
             <div class="footer__item">
-                <div class="footer__title">Discover</div>
+                <div class="footer__title">Service & support</div>
 
                 <ul class="footer__list">
-                    <li><a href="#">Shop by Category</a></li>
-                    <li><a href="#">Customer Service</a></li>
-                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
                 </ul>
             </div>
 

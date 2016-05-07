@@ -149,6 +149,32 @@ button {
     }
 }
 
+/* input-text */
+.input-textarea {
+    display inline-block;
+    vertical-align top
+    width 100%
+    min-height 100px;
+    max-height 200px;
+    border: 2px solid #dadada;
+    border-radius: 3px;
+    font-family $Roboto;
+    font-size 13px;
+    color #acacac;
+    letter-spacing(25, 13);
+    outline none;
+    appearance: none;
+    padding: 12px 12px;
+    transition border 0.2s ease;
+    resize vertical;
+    box-sizing border-box
+
+    &:focus {
+        border-color #3da1da;
+        box-shadow 0 0 7px 1px rgba(61,161,218,1);
+    }
+}
+
 /* checkbox */
 .checkbox {
     cursor pointer;

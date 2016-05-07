@@ -226,6 +226,19 @@ function topForgotPassword() {
             $j(window).on('resize', scrollInit).trigger('resize');
 
         });
+
+        var grid__item = $j('.grid__item');
+
+        if(grid__item.length) {
+            grid__item.each(function() {
+                var self = $j(this);
+
+                if(!self.children('a').length) {
+                    self.remove();
+                }
+            });
+        }
+
     });
 
 })(jQuery);

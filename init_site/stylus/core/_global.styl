@@ -6,6 +6,7 @@
 
 body {
     font-family: $NHaasGroteskDSStd-55Rg;
+    font-size 15px;
 }
 
 a {
@@ -135,5 +136,57 @@ a {
 
     from {
         transform rotate(360deg);
+    }
+}
+
+.fs0 {
+    font-size 0;
+}
+
+.CAPTCHA {
+    width: 100%;
+
+    br {
+        display none
+    }
+
+    td {
+        font-family: $Arial
+        padding: 5px!important;
+        vertical-align top
+        font-size: 13px!important;
+        color: #747474;
+        line-height: 24px;
+    }
+
+    a {
+        color: #747474;
+        font-size: 13px!important;
+        text-decoration underline
+
+        &:hover {
+            text-decoration none
+        }
+    }
+
+    input {
+        display block;
+        height 37px;
+        width: 100%!important;
+        border: 2px solid #dadada;
+        border-radius: 3px;
+        font-family $Roboto;
+        font-size 13px;
+        color #acacac;
+        letter-spacing(25, 13);
+        outline none;
+        appearance: none;
+        transition all 0.2s ease;
+        padding: 5px 12px;
+
+        &:focus {
+            border-color #3da1da;
+            box-shadow 0 0 7px 1px rgba(61,161,218,1);
+        }
     }
 }
