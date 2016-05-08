@@ -222,7 +222,8 @@
         vertical-align top;
         border: 1px solid #2db7e5;
         border-radius: 5px;
-        width: 670px;
+        max-width: 670px;
+        width: 100%;
 
         +breakpoint($media-1024, 'max-width') {
             width 100%
@@ -240,61 +241,51 @@
         font-size 0;
 
         td {
-            padding: 20px 30px 23px 30px;
+            padding: 20px;
 
             +breakpoint($media-640, 'max-width') {
-                padding: 10px 15px 10px 15px;
+                padding-bottom: 0;
             }
         }
 
         b {
             font-family $MyriadPro;
-            font-size 30px;
+            font-size 15px;
             font-weight: bold;
-            line-height 33px;
+            line-height 18px;
             color #000;
-
-            +breakpoint($media-640, 'max-width') {
-                font-size 20px;
-            }
         }
 
         .sc_text {
             font-family $MyriadPro;
-            font-size 25px;
-            line-height 33px;
+            font-size 15px;
+            line-height 18px;
             color #000;
-
-            +breakpoint($media-640, 'max-width') {
-                font-size 20px;
-            }
         }
     }
 
     .bg {
         td {
             font-family $MyriadPro;
-            font-size 25px;
-            line-height 58px;
+            font-size 15px;
+            line-height 45px;
             color #000;
-            padding: 0 30px 36px 30px;
+            padding: 0 20px 20px;
 
             +breakpoint($media-640, 'max-width') {
-                padding: 10px 15px 10px 15px;
-                font-size 20px;
-                line-height 28px;
+                padding: 10px 20px 20px;
             }
         }
 
         input[type="text"] {
             display inline-block;
             vertical-align top
-            height 55px;
-            line-height 55px;
+            height 45px;
+            line-height 45px;
             border: 1px solid #2db7e5;
             border-radius: 5px;
             font-family $MyriadPro;
-            font-size 20px;
+            font-size 15px;
             color #acacac;
             letter-spacing(50, 20);
             outline none;
@@ -325,8 +316,8 @@
             display inline-block;
             vertical-align top;
             outline none;
-            height 55px;
-            line-height 55px;
+            height 45px;
+            line-height 45px;
             font-family $MyriadPro;
             font-size 17px;
             text-align center;
