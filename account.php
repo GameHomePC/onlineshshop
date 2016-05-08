@@ -24,6 +24,8 @@ if ($message) report_ok(1, $message);
 report_error($error);
 ?>
 
+<div class="page__title left">My Account</div>
+
 <script>
     function checkChange(f,remind) {
         if (!f.password.value.length) {
