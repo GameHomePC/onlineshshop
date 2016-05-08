@@ -15,7 +15,7 @@ $Error = get_error($Res);
 include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
-<div class="page__title">Login</div>
+<h1 class="page__title">Login</h1>
 
 <?php
     $html = '

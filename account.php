@@ -24,7 +24,7 @@ if ($message) report_ok(1, $message);
 report_error($error);
 ?>
 
-<div class="page__title">My Account</div>
+<h1 class="page__title">My Account</h1>
 
 <script>
     function checkChange(f,remind) {

@@ -1,10 +1,5 @@
     <?php
         void();
-
-        if ($PageData['content2']!='') {
-          echo '<br>',str_replace('<%BASE%>',$SITE_ROOT,$PageData['content2']),'<br>';
-        }
-
     ?>
 
     <?php

@@ -191,8 +191,11 @@ function topForgotPassword() {
 
         $j(window).on('load', function() {
 
-            var header = $j('.header'),
-                headerFix = $j('#headerFix'),
+            var header = $j('.header');
+
+            if(!header.length) return;
+
+            var headerFix = $j('#headerFix'),
                 headerHeight = header.outerHeight(true),
                 headerFixHeight = headerFix.parent().outerHeight(true),
                 headerPositionTop = header.offset().top,

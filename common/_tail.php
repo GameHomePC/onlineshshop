@@ -13,7 +13,7 @@
                 <div class="footer__title">Company</div>
 
                 <ul class="footer__list">
-                    <li><a href="<?= $SITE_ROOT ?>/">About us</a></li>
+                    <li><a href="<?= $SITE_ROOT ?>/about_us.html">About us</a></li>
                     <li><a href="<?= $SITE_ROOT ?>/news.html">News</a></li>
                     <li><a href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a></li>
                 </ul>

@@ -75,7 +75,7 @@
                     <div class="headerBox__item headerBox__list">
                         <ul class="listH">
                             <li class="listH__item"><a href="<?= $SITE_ROOT ?>/news.html">News</a></li>
-                            <li class="listH__item"><a href="#">About Us</a></li>
+                            <li class="listH__item"><a href="<?= $SITE_ROOT ?>/about_us.html">About Us</a></li>
                             <li class="listH__item"><a href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a></li>
                         </ul>
                     </div>
