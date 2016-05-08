@@ -133,6 +133,8 @@ if ($message) report_ok(1, $message);
 report_error($error);
 ?>
 
+<div class="page__title pb">Forgot your password</div>
+
 <div class="choice">
     <div class="choice__item">
         <div class="choice__newCustomer"><a href="addresses.html">NEW CUSTOMER</a></div>
