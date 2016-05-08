@@ -20,10 +20,8 @@ include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
 
-    <script language="javascript">
+    <script>
         <!--
-
-
         function formSubmitOnce(f, formCorrect, period) {
             if (formCorrect === false) return false;
 
@@ -51,13 +49,13 @@ include_once("$ROOT_PATH/common/all_head.php");
             for (var i = 0; i < l; i++) {
                 var ch = str.charAt(i);
                 if (ch == '@')
-                    if (ata == 1 || i == 0 || cch == '.') return false
+                    if (ata == 1 || i == 0 || cch == '.') return false;
                     else ata = 1;
                 else if (ch == '.')
-                    if (cch == '.' || cch == '@' || i == l - 1 || i == 0) return false
+                    if (cch == '.' || cch == '@' || i == l - 1 || i == 0) return false;
                     else point = ata;
                 else if ((ch < 'A' || ch > 'Z') && (ch < 'a' || ch > 'z') &&
-                    (ch < '0' || ch > '9') && (ch != '_') && (ch != '-')) return false
+                    (ch < '0' || ch > '9') && (ch != '_') && (ch != '-')) return false;
                 cch = ch
             }
             return (ata && point)
@@ -77,7 +75,7 @@ include_once("$ROOT_PATH/common/all_head.php");
             }
             if (!(remind || f.password.value.length)) {
                 alert('Please enter the password');
-                f.password.focus();;
+                f.password.focus();
                 return false
             }
             if (remind == 2)
@@ -114,8 +112,7 @@ $customBlock = '
                 <fieldset class="fieldset">
                     <div class="fieldset__item">
                         <label class="fieldset__title">Password</label>
-                        <input type="email" class="input-text" name="email" value="' . to_html($email) . '">
-                        <input type="password" name="password" value="' . to_html($password) . '">
+                        <input type="password" class="input-text" name="password" value="' . to_html($password) . '">
                     </div>
 
                     <div class="fieldset__item">
