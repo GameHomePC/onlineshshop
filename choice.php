@@ -107,7 +107,7 @@ $customBlock = '
                     </div>
 
                     <div class="fieldset__item">
-                        <input type="button" class="button" value="Remind Password" onclick="if (formSubmitOnce(form,checkLogin(form,1))) form.submit()">
+                        <input type="button" class="form__button" value="Remind Password" onclick="if (formSubmitOnce(form,checkLogin(form,1))) form.submit()">
                     </div>
                 </fieldset>
 
@@ -119,7 +119,7 @@ $customBlock = '
                     </div>
 
                     <div class="fieldset__item">
-                        <input type="button" class="button" value="Reset Password" onclick="if (formSubmitOnce(form,checkLogin(form,2))) form.submit()">
+                        <input type="button" class="form__button" value="Reset Password" onclick="if (formSubmitOnce(form,checkLogin(form,2))) form.submit()">
                     </div>
                 </fieldset>
 
