@@ -79,7 +79,7 @@ $htmlCart = '
 /* end debug */
 ?>
 
-<div class="page__title pb">Cart</div>
+<h1 class="page__title pb">Cart</h1>
 
     <div class="cart">
 

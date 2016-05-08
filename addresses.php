@@ -12,7 +12,7 @@ $Error = get_error($Res);
 include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
-    <div class="page__title pb">Checkout</div>
+    <h1 class="page__title pb">Checkout</h1>
 
     <div class="checkout">
 

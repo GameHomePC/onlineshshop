@@ -17,7 +17,7 @@ $Error = get_error($Res);
 include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
-<div class="page__title">Registration</div>
+<h1 class="page__title">Registration</h1>
 
 <?php
 $html = '
