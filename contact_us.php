@@ -27,6 +27,8 @@ include_once("$ROOT_PATH/common/all_head.php");
 
 <?php echo $Message; ?>
 
+<div class="page__title">Contact Us</div>
+
 <div class="form">
     <form action="contact_us.html" method="POST" onSubmit="if (!checkEmail(this.email.value)) { alert('Enter valid Email!'); return false; } if (this.question.value=='') { alert('Enter message!'); return false; } return captchaCheck(this);">
         <input type="hidden" name="action" value="1">

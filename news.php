@@ -27,7 +27,7 @@ $res = db_query("select nwsID,time,title,content,source
 		from news order by time DESC,nwsID DESC limit $start,$portion");
 // ----------------------------------------------------------------------------/
 ?>
-
+<div class="page__title pb">News</div>
 
 <?php echo $hbar; ?>
 <div class="newsShort">

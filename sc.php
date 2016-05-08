@@ -79,6 +79,7 @@ $htmlCart = '
 /* end debug */
 ?>
 
+<div class="page__title">Cart</div>
 
     <div class="cart">
 
@@ -172,13 +173,13 @@ $htmlCart = '
         ?>
 
 
-<!--        --><?php //if (!$Error && !$DISCOUNT_ID): ?>
+        <?php if (!$Error && !$DISCOUNT_ID): ?>
             <div class="codeCart">
                 <div class="codeCart__wrap">
-                    <?php echo $htmlCode; ?>
+                    <?php echo $Res_d; ?>
                 </div>
             </div>
-<!--        --><?php //endif; ?>
+        <?php endif; ?>
 
 
     </div>

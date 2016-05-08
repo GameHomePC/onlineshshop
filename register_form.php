@@ -17,6 +17,8 @@ $Error = get_error($Res);
 include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
+<div class="page__title">Registration</div>
+
 <?php
 $html = '
     <form name="register" action="/register.html" method="post" onsubmit="return formSubmitOnce(this,checkRegister(this));">
