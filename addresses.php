@@ -12,6 +12,8 @@ $Error = get_error($Res);
 include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
+    <div class="page__title pb">Checkout</div>
+
     <div class="checkout">
 
         <?php
