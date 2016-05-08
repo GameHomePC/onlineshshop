@@ -1,8 +1,5 @@
 <?php
-//ini_set('display_errors', 1);
-// ====================================\
 @include_once('_dir.php');
-// ====================================/
 
 $IsHomePage = 1;
 include_once("$ROOT_PATH/common/all_head.php");
@@ -12,7 +9,6 @@ include_once("$ROOT_PATH/common/all_head.php");
 <?php
     if ($tmp = $FIRST_PAGE_PRODS_INIT[$Config['first_page_prods']]) {
 ?>
-
 
 <ul class="decorLink">
     <li><a href='<?php echo $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
