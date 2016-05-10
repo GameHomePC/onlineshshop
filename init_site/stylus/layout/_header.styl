@@ -52,45 +52,50 @@
 
 /* statusH */
 .statusH {
-    &__circle {
-        position relative;
-        float: left;
-        border-radius 50%;
-        background #2db7e5;
-        width 29px;
-        height 29px;
-    }
-
-    &__status {
-        position absolute;
-        right -2px;
-        top 0;
-        width 11px;
-        height 11px;
-        border-radius 50%;
-        border: 2px solid #fff;
-        box-sizing border-box;
-
-        &_green {
-            background #7bc244;
-        }
-
-        &_red {
-            background red;
-        }
-    }
-
-    &__text {
-        float: left;
-        line-height 18px;
+    &__content {
+        display block
         padding-left: 10px;
-        padding-top: 7px;
-        font-size: 16px;
+        padding-top: 6px;
+    }
+
+    &__blue {
+        display inline-block
+        vertical-align top
+        font-family $MyriadPro
         color: #279dc5;
+        font-weight bold
+        font-size 20px;
+        line-height 22px
+        letter-spacing(20, 25)
+
+        &_big {
+            font-size 30px;
+            margin-right -3px;
+            letter-spacing(30, 25)
+        }
+
+    }
+
+    &__green {
+        display inline-block
+        vertical-align top
+        font-family $MyriadPro
+        color: #7bc244;
+        font-size 20px;
+        font-weight bold
+        line-height 22px
+        letter-spacing(20, 25)
+
+        &_big {
+            font-size 30px;
+            letter-spacing(30, 25)
+            margin-right: -2px;
+        }
     }
 
     a {
         display block;
+        text-decoration none
         clearfix();
     }
 }
@@ -116,6 +121,7 @@
         padding-left: 18px;
         padding-right: 65px;
         margin-right: -45px;
+        appearance none
     }
 
     &__button {

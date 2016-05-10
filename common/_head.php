@@ -54,12 +54,12 @@
             <div class="headerBox__item headerBox__status">
                 <div class="statusH">
                     <a href="<?php echo $SITE_ROOT . '/'; ?>" title="<?php echo to_html($Config['site_name']); ?>">
-                    <span class="statusH__circle">
-                        <i class="statusH__status statusH__status_green"></i>
-                    </span>
-                    <span class="statusH__text">
-                        <strong>Online</strong> Healthcare
-                    </span>
+                        <span class="statusH__content">
+                            <span class="statusH__blue statusH__blue_big">2</span>
+                            <span class="statusH__green statusH__green_big">4</span>
+                            <span class="statusH__blue">drag</span>
+                            <span class="statusH__green">test</span>
+                        </span>
                     </a>
                 </div>
             </div>
