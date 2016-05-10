@@ -161,6 +161,10 @@
 .breadCrumbs {
     padding: 20px 0;
 
+    +breakpoint($media-480, 'max-width') {
+        padding: 10px 0;
+    }
+
     &__list {
         clearfix();
         padding: 0 3px;
@@ -175,7 +179,13 @@
             margin-right: 38px;
             letter-spacing(25, 13);
 
+            +breakpoint($media-480, 'max-width') {
+                font-size 11px
+            }
+
             &:last-of-type {
+                margin-right 0
+
                 &:before {
                     display none;
                 }
@@ -207,6 +217,10 @@
 .grid {
     clearfix();
 
+    +breakpoint($media-1024, 'max-width') {
+        core-justify()
+    }
+
     &__item {
         position relative;
         overflow hidden;
@@ -233,6 +247,47 @@
             clear both;
         }
 
+        +breakpoint($media-1024, 'max-width') {
+            float none
+            display inline-block
+            vertical-align top
+            width 48%;
+            border-bottom 1px solid #e2e2e2;
+
+            &:nth-of-type(3n + 4) {
+                clear none;
+            }
+
+            &:nth-of-type(2n + 3) {
+                clear both;
+            }
+
+            &:nth-of-type(2n + 2) {
+                margin-right: 0;
+            }
+        }
+
+        +breakpoint($media-480, 'max-width') {
+            float none
+            display inline-block
+            vertical-align top
+            width 100%;
+            border-bottom 1px solid #e2e2e2;
+            margin-right: 0;
+
+            &:nth-of-type(3n + 4) {
+                clear none;
+            }
+
+            &:nth-of-type(2n + 3) {
+                clear both;
+            }
+
+            &:nth-of-type(2n + 2) {
+                margin-right: 0;
+            }
+        }
+
         & > a {
             display block;
             text-align center;
@@ -249,24 +304,22 @@
 
     &__title {
         display block;
-        font-family $OpenSans;
-        font-weight bold;
-        font-size 18px;
-        line-height 18px;
+        font-family $NHaasGroteskDSStd-55Rg;
+        font-size 15px;
+        line-height 24px;
         color #000;
     }
 
     &__price {
         display block;
-        font-family $NHaasGroteskDSStd-75Bd;
+        font-family $NHaasGroteskDSStd-55Rg;
         font-weight bold;
-        font-size 19px;
+        font-size 15px;
         line-height 24px;
         color #252525;
         padding: 38px 0;
 
         .old {
-            font-size 15px;
             text-decoration line-through;
             color #9f9f9f;
             margin-right: 4px;
@@ -279,6 +332,16 @@
 
     &__button {
         text-align center;
+
+        .btn {
+            display inline-block;
+            vertical-align top
+            max-width 170px;
+            width 100%;
+            height 46px;
+            line-height 46px;
+            font-size 19px;
+        }
     }
 
     &__linkB {
@@ -441,6 +504,10 @@
     box-sizing border-box;
     margin-bottom: 28px;
 
+    +breakpoint($media-1200, 'max-width') {
+        padding: 10px 15px;
+    }
+
     form {
         font-size 0;
         core-justify();
@@ -459,6 +526,21 @@
         margin-right: 32px;
         width 20%;
 
+        +breakpoint($media-1024, 'max-width') {
+            width 100%;
+            padding: 10px 0;
+            margin-right 0;
+
+            &:last-of-type {
+                padding-bottom: 0;
+            }
+
+            &:first-of-type {
+                padding-top: 0;
+            }
+
+        }
+
         &:last-of-type {
             margin-right: 0;
         }
@@ -474,12 +556,38 @@
         line-height 37px;
         color #dadada
         padding: 0 5px;
+
+        +breakpoint($media-1120, 'max-width') {
+            display none
+        }
     }
 
     .btn {
         max-width: 170px;
         font-size 15px;
         font-family $Roboto;
+
+        +breakpoint($media-640, 'max-width') {
+            max-width: 100%;
+        }
+    }
+
+    .input-text {
+        +breakpoint($media-1120, 'max-width') {
+            display block;
+            width: 100%;
+            margin-bottom: 10px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .select {
+        +breakpoint($media-1024, 'max-width') {
+            width 100%
+        }
     }
 }
 
@@ -501,6 +609,33 @@
 
         &:first-of-type {
             padding-left: 0;
+        }
+
+        +breakpoint($media-640, 'max-width') {
+            width (100% / 2);
+            margin-bottom: 20px;
+
+            &:last-of-type {
+                padding-right: 10px;
+            }
+
+            &:first-of-type {
+                padding-left: 10px;
+            }
+        }
+
+        +breakpoint($media-480, 'max-width') {
+            width 100%;
+            margin-bottom: 10px;
+            padding: 0;
+
+            &:last-of-type {
+                padding-right: 0;
+            }
+
+            &:first-of-type {
+                padding-left: 0;
+            }
         }
     }
 
@@ -528,6 +663,12 @@
         font-size: 22px;
         color: #474747;
         padding: 0 0 20px;
+    }
+
+    &__table {
+        position relative
+        overflow-y hidden
+        overflow-x auto
     }
 
     .border {

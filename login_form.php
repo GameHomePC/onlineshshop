@@ -15,6 +15,8 @@ $Error = get_error($Res);
 include_once("$ROOT_PATH/common/all_head.php");
 ?>
 
+<h1 class="page__title">Login</h1>
+
 <?php
     $html = '
     <form name="toploginform" action="/login.html" method="post" onsubmit="return formSubmitOnce(this,checkLogin(this));">

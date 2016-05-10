@@ -3,11 +3,31 @@
     padding: 35px 0 0;
 }
 
-.headerBox {
+.headerBoxFix {
     background: #ffffff;
     border-radius: 5px;
+    font-size 0
+    transition box-shadow 0.2s ease;
     clearfix();
 
+    &.fixed {
+        +breakpoint($media-768, 'min-width') {
+            position fixed;
+            top: 0;
+            max-width: 1170px;
+            width calc(100% - 20px);
+            z-index 100
+        }
+    }
+
+    &.shadow {
+        +breakpoint($media-768, 'min-width') {
+            box-shadow 0 0 25px 5px rgba(45, 183, 229, 0.2);
+        }
+    }
+}
+
+.headerBox {
     &__logo {
         a {
             display: block;
@@ -15,37 +35,109 @@
     }
 
     &__item {
-        float left;
+        display inline-block
+        vertical-align top
         height 65px;
         box-sizing: border-box;
-
     }
 
     &__status {
         padding: 18px 21px 18px 19px;
         border-right: 1px solid #e2e2e2;
+
+        +breakpoint($media-1024, 'max-width') {
+            display block
+            border-right: none;
+            border-bottom 1px solid #e2e2e2;
+        }
     }
 
     &__select {
-        padding: 16px 38px;
+        position relative
+        padding: 16px 10px;
     }
 
     &__search {
-        padding-left: 41px;
-        padding-right: 18px;
+        +breakpoint($media-1024, 'max-width') {
+            width 100%;
+        }
     }
 
     &__list {
-
+        +breakpoint($media-480, 'max-width') {
+            width 100%;
+            border-bottom 1px solid #e2e2e2;
+        }
     }
 
     &__account {
-        float right;
+        float right
+
+        +breakpoint($media-1024, 'max-width') {
+            float none
+        }
     }
 
     &__box {
         verticatfix();
         box-sizing border-box;
+    }
+
+    &__top {
+        position relative
+        display inline-block
+        vertical-align top
+        box-sizing border-box
+        width: 205px;
+
+        +breakpoint($media-1024, 'max-width') {
+            width 100%
+            text-align center
+        }
+    }
+
+    &__middle {
+        display inline-block
+        vertical-align top
+        box-sizing border-box
+        width 100%;
+        padding-left: 225px;
+        margin-left: -205px;
+
+        +breakpoint($media-1024, 'max-width') {
+            text-align center
+            border-right: 1px solid #e2e2e2;
+            margin-left: 0;
+            padding 0 20px
+        }
+
+        +breakpoint($media-768, 'max-width') {
+            width 100%
+            border-right: none;
+            border-bottom: 1px solid #e2e2e2;
+        }
+    }
+
+    &__bottom {
+        float left
+        box-sizing border-box
+        width: 60%;
+        clearfix();
+
+        +breakpoint($media-1024, 'max-width') {
+            width 100%
+            text-align center
+        }
+    }
+
+    &__small {
+        float left
+        box-sizing border-box
+        width: 40%;
+
+        +breakpoint($media-1024, 'max-width') {
+            width: 100%;
+        }
     }
 }
 
@@ -106,8 +198,13 @@
 .searchH {
     &__box {
         padding 10px 0;
-        width: 270px;
+        max-width: 270px;
+        width: 100%;
         clearfix();
+
+        +breakpoint($media-1024, 'max-width') {
+            max-width: 100%;
+        }
     }
 
     &__input {
@@ -144,12 +241,22 @@
 /* listH */
 .listH {
     verticatfix();
+    padding-right: 30px;
+
+    +breakpoint($media-320, 'max-width') {
+        padding-right: 0;
+        display block
+    }
 
     &__item {
         display inline-block;
         vertical-align middle;
         border-right: 1px solid #e6e6e6;
         padding: 0 10px;
+
+        +breakpoint($media-1120, 'max-width') {
+            padding: 0 5px;
+        }
 
         &:last-of-type {
             border-right: none;
@@ -162,9 +269,14 @@
             line-height 16px;
             color #616161;
             letter-spacing(50, 14);
+            text-decoration none;
+
+            +breakpoint($media-1120, 'max-width') {
+                font-size 11px;
+            }
 
             &:hover {
-                text-decoration none;
+                text-decoration underline;
             }
         }
     }
@@ -184,6 +296,10 @@
 
     .headerBox__bag {
         padding 10px 25px 10px 0;
+
+        +breakpoint($media-1024, 'max-width') {
+            padding 10px 0 10px 0;
+        }
     }
 }
 
@@ -232,6 +348,10 @@
     vertical-align middle;
     padding-right: 6px;
 
+    +breakpoint($media-1120, 'max-width') {
+        padding-right: 3px;
+    }
+
     &__box {
         display block;
         margin-bottom: 4px;
@@ -263,9 +383,14 @@
             line-height 16px;
             letter-spacing(50, 14);
             color #616161;
+            text-decoration none;
+
+            +breakpoint($media-1120, 'max-width') {
+                font-size 11px;
+            }
 
             &:hover {
-                text-decoration none;
+                text-decoration underline;
             }
         }
     }

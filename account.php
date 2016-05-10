@@ -24,6 +24,8 @@ if ($message) report_ok(1, $message);
 report_error($error);
 ?>
 
+<h1 class="page__title">My Account</h1>
+
 <script>
     function checkChange(f,remind) {
         if (!f.password.value.length) {
@@ -85,9 +87,9 @@ $htmlChange = '
 if ($Error) report_error($Error);
 else echo '<div class="form">', $htmlChange, '</div>',
 '<div class="order">
-    <div class="order__title">Your orders:</div>'
-    . $Res_ord .
-'</div>';
+    <div class="order__title">Your orders:</div>
+    <div class="order__table">'. $Res_ord . '</div>
+</div>';
 ?>
 
 <?php

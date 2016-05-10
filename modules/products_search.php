@@ -190,13 +190,6 @@ void();
 
     ?>
 
-    <ul class="decorLink">
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_special.html'>Specials</a></li>
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_new.html'>New Products</a></li>
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_featured.html'>Featured Products</a></li>
-        <li><a href='<?php echo $SITE_ROOT ?>/prod_bestseller.html'>Bestsellers</a></li>
-    </ul>
-
     <?php if($cat_sel): ?>
         <div class="filter">
         <form action='search_prod.html' style='margin:0'>
@@ -311,9 +304,9 @@ void();
 
                     <div class="grid__button">
                         <?php if ($in_stock && $quantity) { ?>
-                            <a class="btn btn__blue" href="<?php echo $href1; ?>" rel='nofollow'>Buy now</a>
+                            <a class="btn btn__green" href="<?php echo $href1; ?>" rel='nofollow'><span>Buy now</span></a>
                         <?php } else { ?>
-                            <b class="btn btn__blue">OUT</b>
+                            <b class="btn btn__green"><span>OUT</span></b>
                         <?php } ?>
                     </div>
 

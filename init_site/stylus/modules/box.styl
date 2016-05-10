@@ -4,6 +4,10 @@
 
         &:last-of-type {
             margin-bottom: 0;
+
+            +breakpoint($media-768, 'max-width') {
+                margin-bottom: 23px;
+            }
         }
     }
 }
@@ -23,6 +27,10 @@
         color #393635;
         background #f2f5f8;
         padding 15px 0 15px 20px;
+
+        +breakpoint($media-768, 'max-width') {
+            padding 5px 0 5px 10px;
+        }
     }
 
     &__list {
@@ -40,6 +48,10 @@
                 margin: auto;
                 sprite($arrow-right_v1);
                 content "";
+
+                +breakpoint($media-768, 'max-width') {
+                    right: 10px;
+                }
             }
         }
 
@@ -53,6 +65,11 @@
             text-decoration none;
             background #fff;
             transition all 0.2s ease;
+
+            +breakpoint($media-768, 'max-width') {
+                padding 5px 15px 5px 10px;
+                font-size 12px;
+            }
 
             &:hover {
                 background #f8f8f8;
@@ -76,6 +93,10 @@
                 margin: auto;
                 sprite($arrow-right_v1);
                 content "";
+
+                +breakpoint($media-768, 'max-width') {
+                    right: 10px;
+                }
             }
         }
 
@@ -96,6 +117,11 @@
             box-sizing border-box;
             word-break: break-word;
             text-align left;
+
+            +breakpoint($media-768, 'max-width') {
+                padding 5px 15px 5px 30px;
+                font-size 12px;
+            }
 
             &:hover {
                 background #f8f8f8;

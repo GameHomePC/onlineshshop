@@ -1,4 +1,4 @@
-<? void();
+<?php void();
 // ------------------------------------------------\
 //  $EditMenu=0;
 //  $MenuName='site_menu';
@@ -6,47 +6,6 @@
 //  include("$ROOT_PATH/modules/menu_print.php");
 // ------------------------------------------------/
 ?>
-
-<?php /* ?>
-
-    <table width=100% border=0 cellpadding=0 cellspacing=0 class=pageHeader>
-
-        <tr class=menuLine>
-            <td background="<?= $SITE_ROOT ?>/img/menu_pas.gif" height=31>
-
-
-
-                <table cellpadding=0 cellspacing=0 border=0 width=100%>
-                    <tr>
-                        <td nowrap style='padding:0 25 0 7'>
-                            <?
-                            if ($NO_EXTERNAL) {
-                                ?>
-                                <a class=menu href="<?= $SC_SITE_URL ?>/sc/sc.php?shop=<?= $SHOP_ID ?>" rel='nofollow'>My&nbsp;Cart</a>
-                                <a class=menu href="<?= $SC_SITE_URL ?>/sc/login.php?shop=<?= $SHOP_ID ?>"
-                                   rel='nofollow'>Checkout</a>
-<?
-                            } else {
-                                ?>
-
-                                <? if ($SC_QUANTITY) { ?>
-                                    <a class=menu href="<?= $SITE_ROOT ?>/sc.html" rel='nofollow'>My&nbsp;Cart</a>
-                                    <a class=menu
-                                       href="<?= $SECURE_URL_HEADER ?>/<?= $CUSTOMER_ID ? 'addresses.html' : 'choice.html' ?>"
-                                       rel='nofollow'>Checkout</a>
-                                <? } ?>
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                </table>
-
-            </td>
-        </tr>
-    </table>
-
-<?php */ ?>
-
 
 <header class="header">
     <div class="wrapper">
@@ -64,98 +23,106 @@
                 </div>
             </div>
 
-            <div class="headerBox__item headerBox__select">
-                <div class="selectH">
-                    <div class="selectH__minText">Select</div>
-                    <div class="selectH__item">
-                        <span class="selectH__title">Category</span>
+                    <div class="headerBox__middle">
+                        <?php /* ?>
+                        <div class="headerBox__item headerBox__select">
+                            <div class="selectH">
+                                <div class="selectH__minText">Select</div>
+                                <div class="selectH__item">
+                                    <span class="selectH__title">Category</span>
 
-                        <div class="selectHSub">
-                            <div class="selectHSub__box">
-                                <ul class="selectHSub__catalog">
-                                    <li><a class=menu href="<?= $SITE_ROOT ?>/">Home</a></li>
-                                    <li><a class=menu href="<?= $SITE_ROOT ?>/news.html">News</a></li>
-                                    <li><a class=menu href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a></li>
-                                    <li><a class=menu href="<?= $SITE_ROOT ?>/search.html" rel='nofollow'>Site Search</a></li>
+                                    <div class="selectHSub">
+                                        <div class="selectHSub__box">
+                                            <ul class="selectHSub__catalog">
+                                                <li><a class=menu href="<?= $SITE_ROOT ?>/">Home</a></li>
+                                                <li><a class=menu href="<?= $SITE_ROOT ?>/news.html">News</a></li>
+                                                <li><a class=menu href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a></li>
+                                                <li><a class=menu href="<?= $SITE_ROOT ?>/search.html" rel='nofollow'>Site Search</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php */ ?>
+
+                        <div class="headerBox__item headerBox__search">
+                            <form
+                                class="searchH"
+                                action="<?= $SITE_ROOT ?>/search_prod.html"
+                                onSubmit="return formSubmitOnce(this, checkFilled(this.search_text,'Enter text for the search'))">
+                                <div class="searchH__box">
+                                    <input class="searchH__input"
+                                           type="search"
+                                           placeholder="Search"
+                                           name="search_text"
+                                           maxlength="100"
+                                           value="<?= to_html($search_text) ?>"
+                                        />
+                                    <button class="searchH__button"></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="headerBox__bottom">
+                    <div class="headerBox__item headerBox__list">
+                        <ul class="listH">
+                            <li class="listH__item"><a href="<?= $SITE_ROOT ?>/news.html">News</a></li>
+                            <li class="listH__item"><a href="<?= $SITE_ROOT ?>/about_us.html">About Us</a></li>
+                            <li class="listH__item"><a href="<?= $SITE_ROOT ?>/contact_us.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="headerBox__item headerBox__account">
+                        <div class="headerBox__box verticatfix">
+                            <div class="headerLogin">
+                                <ul class="headerLogin__box headerLogin_join">
+                                    <li><a href="#" onclick="scrollToBox('.footer'); return false;">Join our mailing list</a></li>
+                                </ul>
+
+                                <ul class="headerLogin__box">
+                                    <?php if(!$CUSTOMER_ID): ?>
+                                        <li><a href="<?php echo $SITE_ROOT; ?>/login_form.html">Login</a></li>
+                                        <li><a href="<?php echo $SITE_ROOT; ?>/register_form.html">Registration</a></li>
+                                    <?php endif; ?>
+
+                                    <?php if($CUSTOMER_ID): ?>
+                                        <li><a href="<?= $SECURE_URL_HEADER ?>/account.html">Your account</a></li>
+                                        <li><a href="<?php echo $SITE_ROOT; ?>/logout.html?toploginform_url=<?php echo to_url($REQUEST_URI); ?>">Logout</a></li>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="headerBox__item headerBox__search">
-                <form
-                    class="searchH"
-                    action="<?= $SITE_ROOT ?>/search_prod.html"
-                    onSubmit="return formSubmitOnce(this, checkFilled(this.search_text,'Enter text for the search'))">
-                    <div class="searchH__box">
-                        <input class="searchH__input"
-                               type="search"
-                               placeholder="Search"
-                               name="search_text"
-                               maxlength="100"
-                               value="<?= to_html($search_text) ?>"
-                            />
-                        <button class="searchH__button"></button>
-                    </div>
-                </form>
-            </div>
+                        <div class="headerBox__box headerBox__bag">
+                            <?php if ($NO_EXTERNAL) { ?>
 
-            <div class="headerBox__item headerBox__list">
-                <ul class="listH">
-                    <li class="listH__item"><a href="#">News</a></li>
-                    <li class="listH__item"><a href="#">About Us</a></li>
-                    <li class="listH__item"><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="headerBox__item headerBox__account">
-                <div class="headerBox__box verticatfix">
-                    <div class="headerLogin">
-                        <ul class="headerLogin__box headerLogin_join">
-                            <li><a href="#" onclick="scrollToBox('.footer'); return false;">Join our mailing list</a></li>
-                        </ul>
-
-                        <ul class="headerLogin__box">
-                            <?php if(!$CUSTOMER_ID): ?>
-                                <li><a href="<?php echo $SITE_ROOT; ?>/login_form.html">Login</a></li>
-                                <li><a href="<?php echo $SITE_ROOT; ?>/register_form.html">Registration</a></li>
-                            <?php endif; ?>
-
-                            <?php if($CUSTOMER_ID): ?>
-                                <li><a href="<?= $SECURE_URL_HEADER ?>/account.html">Your account</a></li>
-                                <li><a href="<?php echo $SITE_ROOT; ?>/logout.html?toploginform_url=<?php echo to_url($REQUEST_URI); ?>">Logout</a></li>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="headerBox__box headerBox__bag">
-                    <?php if ($NO_EXTERNAL) { ?>
-
-                        <a href="<?php echo $SC_SITE_URL ?>/sc/sc.php?shop=<?= $SHOP_ID ?>" class="bagH">
+                                <a href="<?php echo $SC_SITE_URL ?>/sc/sc.php?shop=<?= $SHOP_ID ?>" class="bagH">
                         <span class="bagH__number">
                             <script src="<?= $SC_SITE_URL ?>/EXPORT/quantity.php?shop=<?= $SHOP_ID ?>"></script>
                         </span>
-                            <span class="bagH__icon"></span>
-                        </a>
+                                    <span class="bagH__icon"></span>
+                                </a>
 
-                    <?php } elseif ($SC_QUANTITY) { ?>
+                            <?php } elseif ($SC_QUANTITY) { ?>
 
-                        <a href="<?php echo $SITE_ROOT ?>/sc.html" class="bagH">
-                            <span class="bagH__number"><?php echo $SC_QUANTITY ?></span>
-                            <span class="bagH__icon"></span>
-                        </a>
+                                <a href="<?php echo $SITE_ROOT ?>/sc.html" class="bagH">
+                                    <span class="bagH__number"><?php echo $SC_QUANTITY ?></span>
+                                    <span class="bagH__icon"></span>
+                                </a>
 
-                    <?php } else { ?>
+                            <?php } else { ?>
 
-                        <div class="bagH">
-                            <span class="bagH__number">0</span>
-                            <span class="bagH__icon"></span>
+                                <div class="bagH">
+                                    <span class="bagH__number">0</span>
+                                    <span class="bagH__icon"></span>
+                                </div>
+
+                            <?php } ?>
                         </div>
-
-                    <?php } ?>
+                    </div>
                 </div>
             </div>
         </div>

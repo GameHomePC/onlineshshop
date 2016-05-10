@@ -5,11 +5,31 @@
     &__images {
         float left;
         width: 35%;
+
+        +breakpoint($media-768, 'max-width') {
+            width 100%
+            padding-bottom 20px
+        }
+    }
+
+    &__relative {
+        font-family $Arial
+        font-size 20px
+        line-height 24px
+        letter-spacing(20, 25)
+        color #000
+        text-align center
+        padding: 20px 0;
+        font-weight bold
     }
 
     &__content {
         float left;
         width: 65%;
+
+        +breakpoint($media-768, 'max-width') {
+            width 100%
+        }
     }
 
     &__imagesLink {

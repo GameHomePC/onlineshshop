@@ -23,6 +23,7 @@
     <meta http-equiv="Content-script-type" content="text/javascript" />
     <meta charset="<?php echo $SITE_CHARSET; ?>" />
     <meta http-equiv="Content-Language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
 
     <?php echo $Site_head_tags; ?>
 

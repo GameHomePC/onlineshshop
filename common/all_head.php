@@ -17,9 +17,3 @@ include_once("$ROOT_PATH/common/all.php");
                 exit;
             }
         ?>
-
-        <?php /*
-            if ($PageData['content1'] != '') {
-                echo str_replace('<%BASE%>', $SITE_ROOT, $PageData['content1']), '<p clear="all" style="margin: 0"></p>';
-            }
-        */ ?>

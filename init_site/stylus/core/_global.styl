@@ -6,6 +6,7 @@
 
 body {
     font-family: $NHaasGroteskDSStd-55Rg;
+    font-size 15px;
 }
 
 a {
@@ -36,16 +37,30 @@ a {
 
     &--sidebar {
         float left;
+
+        +breakpoint($media-768, 'max-width') {
+            float none;
+        }
     }
 
     &--right {
         margin-right: -270px;
         padding-right: 297px;
+
+        +breakpoint($media-768, 'max-width') {
+            margin-right: 0;
+            padding-right: 0;
+        }
     }
 
     &--left {
         margin-left: -270px;
         padding-left: 297px;
+
+        +breakpoint($media-768, 'max-width') {
+            margin-left: 0;
+            padding-left: 0;
+        }
     }
 }
 
@@ -55,17 +70,28 @@ a {
     &--small {
         float left;
         width: 270px;
+
+        +breakpoint($media-768, 'max-width') {
+            float none
+            width auto
+        }
     }
 
 }
 
-footer-item(397px, '.window', '.footer');
+/*footer-item(397px, '.window', '.footer');*/
 
 .verticatfix {
     verticatfix();
 }
 
 .warnH {
+    padding: 5px 0;
+    font-family $MyriadPro;
+    border-radius: 5px;
+}
+
+.okH {
     padding: 5px 0;
     font-family $MyriadPro;
     border-radius: 5px;
@@ -110,5 +136,57 @@ footer-item(397px, '.window', '.footer');
 
     from {
         transform rotate(360deg);
+    }
+}
+
+.fs0 {
+    font-size 0;
+}
+
+.CAPTCHA {
+    width: 100%;
+
+    br {
+        display none
+    }
+
+    td {
+        font-family: $Arial
+        padding: 5px!important;
+        vertical-align top
+        font-size: 13px!important;
+        color: #747474;
+        line-height: 24px;
+    }
+
+    a {
+        color: #747474;
+        font-size: 13px!important;
+        text-decoration underline
+
+        &:hover {
+            text-decoration none
+        }
+    }
+
+    input {
+        display block;
+        height 37px;
+        width: 100%!important;
+        border: 2px solid #dadada;
+        border-radius: 3px;
+        font-family $Roboto;
+        font-size 13px;
+        color #acacac;
+        letter-spacing(25, 13);
+        outline none;
+        appearance: none;
+        transition all 0.2s ease;
+        padding: 5px 12px;
+
+        &:focus {
+            border-color #3da1da;
+            box-shadow 0 0 7px 1px rgba(61,161,218,1);
+        }
     }
 }

@@ -9,6 +9,14 @@
         &__wrapSubmit {
             margin-top: 14px;
             text-align right;
+
+            +breakpoint($media-1024, 'max-width') {
+                text-align center;
+
+                .btn {
+                    width 100%
+                }
+            }
         }
     }
 
