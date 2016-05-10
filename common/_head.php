@@ -10,18 +10,23 @@
 <header class="header">
     <div class="wrapper">
         <div class="headerBox">
-            <div class="headerBox__item headerBox__status">
-                <div class="statusH">
-                    <a href="<?php echo $SITE_ROOT . '/'; ?>" title="<?php echo to_html($Config['site_name']); ?>">
-                        <span class="statusH__content">
-                            <span class="statusH__blue statusH__blue_big">2</span>
-                            <span class="statusH__green statusH__green_big">4</span>
-                            <span class="statusH__blue">drag</span>
-                            <span class="statusH__green">test</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
+            <div class="headerBoxFix" id="headerFix">
+                <div class="headerBox__small">
+                    <div class="headerBox__top">
+                        <div class="headerBox__item headerBox__status">
+                            <div class="statusH">
+                                <a href="<?php echo $SITE_ROOT . '/'; ?>"
+                                   title="<?php echo to_html($Config['site_name']); ?>">
+                                    <span class="statusH__content">
+                                        <span class="statusH__blue statusH__blue_big">2</span>
+                                        <span class="statusH__green statusH__green_big">4</span>
+                                        <span class="statusH__blue">drag</span>
+                                        <span class="statusH__green">test</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="headerBox__middle">
                         <?php /* ?>
@@ -58,7 +63,7 @@
                                            name="search_text"
                                            maxlength="100"
                                            value="<?= to_html($search_text) ?>"
-                                        />
+                                    />
                                     <button class="searchH__button"></button>
                                 </div>
                             </form>
@@ -158,85 +163,85 @@
     <div class="wrapper">
 
         <div class="sidebar sidebar--small">
-        <div class="box">
-            <div class="box__item">
-                <div class="boxList">
-                    <h3 class="boxList__title">All Category</h3>
-                    <ul class="boxList__list">
-                        <?php
-                        if (!$Config['left_menu_style']) {
+            <div class="box">
+                <div class="box__item">
+                    <div class="boxList">
+                        <h3 class="boxList__title">All Category</h3>
+                        <ul class="boxList__list">
+                            <?php
+                            if (!$Config['left_menu_style']) {
 
-                            include("$ROOT_PATH/modules/menu_categories.php");
+                                include("$ROOT_PATH/modules/menu_categories.php");
 
-                        } else {
+                            } else {
 
-                            echo '<div class="tree_usual">';
+                                echo '<div class="tree_usual">';
 
-                            $TreeInfo = $CategItems[$CatID]['tree_info'];
+                                $TreeInfo = $CategItems[$CatID]['tree_info'];
 
-                            foreach ($CategItems as $id => $item) {
+                                foreach ($CategItems as $id => $item) {
 
-                                if ($id < 2) continue;
-                                $lev = $item['level'];
+                                    if ($id < 2) continue;
+                                    $lev = $item['level'];
 
-                                if ($lev != 1 && !strpos($TreeInfo, '_' . str_pad($item['parID'], 6, '0', STR_PAD_LEFT) . '_'))
-                                    continue;
-                                list($name_, $comm_) = call('to_html', $item['name'], $item['comment']);
-                                if ($Config['menu_prd_count']) $name_ .= "<nobr>&nbsp;($item[n_prod])</nobr>";
+                                    if ($lev != 1 && !strpos($TreeInfo, '_' . str_pad($item['parID'], 6, '0', STR_PAD_LEFT) . '_'))
+                                        continue;
+                                    list($name_, $comm_) = call('to_html', $item['name'], $item['comment']);
+                                    if ($Config['menu_prd_count']) $name_ .= "<nobr>&nbsp;($item[n_prod])</nobr>";
 
 
-                                $tmp = ($CatID == $id) ? 'class="active"' : '';
-                                $name_ = "<a href='$SITE_ROOT/$item[href]' title='$comm_' $tmp>$name_</a>";
+                                    $tmp = ($CatID == $id) ? 'class="active"' : '';
+                                    $name_ = "<a href='$SITE_ROOT/$item[href]' title='$comm_' $tmp>$name_</a>";
 
-                                echo "<div style='padding-left:", (($lev - 1) * 10), "'>$name_</div>";
+                                    echo "<div style='padding-left:", (($lev - 1) * 10), "'>$name_</div>";
 
+                                }
+                                echo '</div>';
                             }
-                            echo '</div>';
-                        }
-                        ?>
-                    </ul>
+                            ?>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="box__item">
-                <div class="boxList">
-                    <h3 class="boxList__title">Bestsellers</h3>
-                    <ul class="boxList__list_best">
-                        <?php
-                        $ModuleData = array(
-                            'header' => 'Bestsellers',
-                            'condition' => '',
-                            'order' => 'p.num_choosed desc,priority,rand()',
-                            'block_head' => "<img src='$SITE_ROOT/img/1x1.gif' width=1 height=4 alt=''><br>"
-                        );
-                        include("$ROOT_PATH/modules/products_block.php");
-                        ?>
+                <div class="box__item">
+                    <div class="boxList">
+                        <h3 class="boxList__title">Bestsellers</h3>
+                        <ul class="boxList__list_best">
+                            <?php
+                            $ModuleData = array(
+                                'header' => 'Bestsellers',
+                                'condition' => '',
+                                'order' => 'p.num_choosed desc,priority,rand()',
+                                'block_head' => "<img src='$SITE_ROOT/img/1x1.gif' width=1 height=4 alt=''><br>"
+                            );
+                            include("$ROOT_PATH/modules/products_block.php");
+                            ?>
 
-                        <?php
-                        $tmpOne = $CatID ? "categories like '%:$CatID:%'" : 0;
-                        $resOne = db_query("select name,products from sc_list where active and col=1 and length(products)>2 and (all_pages or $tmpOne)");
+                            <?php
+                            $tmpOne = $CatID ? "categories like '%:$CatID:%'" : 0;
+                            $resOne = db_query("select name,products from sc_list where active and col=1 and length(products)>2 and (all_pages or $tmpOne)");
 
-                        while ($lst = @$sql_fetch_assoc($resOne)) {
-                            if ($prds = array_filter(call('intval', explode(':', $lst['products'])))) {
-                                $ModuleData = array(
-                                    'header' => $lst['name'],
-                                    'condition' => 'p.prdID in (' . implode(',', $prds) . ')',
-                                    'order' => 'priority,rand()',
-                                    'block_head' => "<img src='$SITE_ROOT/img/1x1.gif' width=1 height=4 alt=''><br>"
-                                );
-                                include("$ROOT_PATH/modules/products_block.php");
+                            while ($lst = @$sql_fetch_assoc($resOne)) {
+                                if ($prds = array_filter(call('intval', explode(':', $lst['products'])))) {
+                                    $ModuleData = array(
+                                        'header' => $lst['name'],
+                                        'condition' => 'p.prdID in (' . implode(',', $prds) . ')',
+                                        'order' => 'priority,rand()',
+                                        'block_head' => "<img src='$SITE_ROOT/img/1x1.gif' width=1 height=4 alt=''><br>"
+                                    );
+                                    include("$ROOT_PATH/modules/products_block.php");
+                                }
                             }
-                        }
-                        ?>
-                    </ul>
+                            ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <div class="container container--sidebar container--left">
 
-        <?php /* ?>
+            <?php /* ?>
                 <td width=0 style='padding-left:1px'>
                     <img src='<?= $SITE_ROOT ?>/img/1x1.gif' width="160" height="1" alt=''><br>
 
@@ -359,7 +364,7 @@
                 </td>
                 <?php */ ?>
 
-        <?php /*
+<?php /*
             if ($PageTitle) {
                 if ($PageData['type'] == 2) $PageTitle = "<a href='$SITE_ROOT/articles.html'>Articles</a> &gt; $PageTitle";
                 echo "<h1>$PageTitle</h1>";
